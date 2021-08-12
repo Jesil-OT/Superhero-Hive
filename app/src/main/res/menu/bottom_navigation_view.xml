@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/superheroes"
+        android:icon="@drawable/ic_superhero_icon"
+        android:title="@string/superheroes" />
+    <item
+        android:id="@+id/bookmark"
+        android:icon="@drawable/ic_bookmark_border"
+        android:title="@string/bookmark" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/setting" />
+</menu>
