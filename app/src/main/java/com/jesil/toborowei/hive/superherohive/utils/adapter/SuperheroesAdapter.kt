@@ -11,6 +11,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.ItemEachHeroBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
+import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
 
 class SuperheroesAdapter(private val _listener: OnItemClickListener?) :
@@ -40,8 +42,8 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener?) :
             }
         }
         private val requestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_background)
+            .placeholder(R.drawable.ic_on_loading_image)
+            .error(R.drawable.ic_broken_image)
 
         fun bind(heroModel: HeroModel) {
             binding.apply {
@@ -51,13 +53,13 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener?) :
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imageSrcMedium)
                 when(heroModel.biography.publisher){
-                    "Marvel Comics" -> {
+                    MARVEL -> {
                         Glide.with(itemView)
                         .load(R.drawable.ic_marvel)
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .into(imageRace)
                     }
-                    "DC Comics" -> {
+                    DC -> {
                         Glide.with(itemView)
                             .load(R.drawable.ic_dc)
                             .transition(DrawableTransitionOptions.withCrossFade())

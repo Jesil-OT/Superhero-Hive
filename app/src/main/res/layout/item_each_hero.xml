@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
-    app:cardElevation="5dp"
+    app:cardElevation="6dp"
     app:cardUseCompatPadding="true">
 
     <ImageView
@@ -36,16 +36,16 @@
             app:layout_constraintStart_toStartOf="parent"
             tool:text="A-Bomb" />
 
-
         <ImageView
             android:id="@+id/image_race"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_marvel"
+            tool:src="@drawable/ic_marvel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_view_name" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
