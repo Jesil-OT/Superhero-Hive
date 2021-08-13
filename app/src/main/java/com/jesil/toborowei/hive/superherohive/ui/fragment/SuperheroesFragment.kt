@@ -55,7 +55,7 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
                     }
                 }
                 is DataResult.Error -> {
-                    binding.apply{
+                    binding.apply {
                         lottieAnimationViewNoInternet.showLottieUtil()
                         textViewError.text = "${result.error.message}."
                         shimmerViewContainer.apply {
