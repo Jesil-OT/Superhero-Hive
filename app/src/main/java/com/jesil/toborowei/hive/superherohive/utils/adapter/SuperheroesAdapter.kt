@@ -15,32 +15,35 @@ import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
 
-class SuperheroesAdapter(private val _listener: OnItemClickListener?) :
+class SuperheroesAdapter(private val _listener: OnItemClickListener) :
     ListAdapter<HeroModel, SuperheroesAdapter.SuperheroesViewHolder>(UserComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroesViewHolder {
-        val binding = ItemEachHeroBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemEachHeroBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SuperheroesViewHolder(binding)
     }
 
     override fun onBindViewHolder(holderSuperheroes: SuperheroesViewHolder, position: Int) {
         val currentItem = getItem(position)
-        if (currentItem != null){
+        if (currentItem != null) {
             holderSuperheroes.bind(currentItem)
         }
     }
 
     inner class SuperheroesViewHolder(private val binding: ItemEachHeroBinding) :
-        RecyclerView.ViewHolder(binding.root){
+        RecyclerView.ViewHolder(binding.root) {
+
 
         init {
             binding.root.setOnClickListener {
-                    val item = getItem(position)
-                    if (item != null){
-                        _listener?.onItemClick(item)
+                val item = getItem(adapterPosition)
+                if (item != null) {
+                    _listener.onItemClick(item)
                 }
             }
         }
+
         private val requestOptions = RequestOptions()
             .placeholder(R.drawable.ic_on_loading_image)
             .error(R.drawable.ic_broken_image)
@@ -52,12 +55,12 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener?) :
                     .load(heroModel.images.md)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imageSrcMedium)
-                when(heroModel.biography.publisher){
+                when (heroModel.biography.publisher) {
                     MARVEL -> {
                         Glide.with(itemView)
-                        .load(R.drawable.ic_marvel)
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .into(imageRace)
+                            .load(R.drawable.ic_marvel)
+                            .transition(DrawableTransitionOptions.withCrossFade())
+                            .into(imageRace)
                     }
                     DC -> {
                         Glide.with(itemView)
@@ -72,7 +75,7 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener?) :
     }
 
 
-    class UserComparator : DiffUtil.ItemCallback<HeroModel>(){
+    class UserComparator : DiffUtil.ItemCallback<HeroModel>() {
         override fun areItemsTheSame(oldItem: HeroModel, newItem: HeroModel): Boolean {
             return oldItem.id == newItem.id
         }

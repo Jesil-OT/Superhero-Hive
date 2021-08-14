@@ -9,6 +9,6 @@ data class Appearance(
     val gender: String,
     val hairColor: String,
     val height: List<String>,
-    val race: String,
+    val race: String?,
     val weight: List<String>
 ): Parcelable
