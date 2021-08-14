@@ -1,19 +1,21 @@
 package com.jesil.toborowei.hive.superherohive.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentSuperheroesBinding
+import com.jesil.toborowei.hive.superherohive.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesViewModel
-import com.jesil.toborowei.hive.superherohive.utils.DataResult
+import com.jesil.toborowei.hive.superherohive.ui.fragment.details.SuperheroDetailsActivity
+import com.jesil.toborowei.hive.superherohive.utils.*
+import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.adapter.SuperheroesAdapter
-import com.jesil.toborowei.hive.superherohive.utils.hideShimmerUtils
-import com.jesil.toborowei.hive.superherohive.utils.showLottieUtil
-import com.jesil.toborowei.hive.superherohive.utils.showShimmerUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -22,12 +24,12 @@ import dagger.hilt.android.AndroidEntryPoint
  * create an instance of this fragment.
  */
 @AndroidEntryPoint
-class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
+class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClickListener {
     private val viewModel: SuperheroesViewModel by viewModels()
     private var _binding: FragmentSuperheroesBinding? = null
     private val binding get() = _binding!!
     private val superheroesAdapter: SuperheroesAdapter by lazy {
-        SuperheroesAdapter(null)
+        SuperheroesAdapter(this)
     }
 
     @SuppressLint("SetTextI18n")
@@ -48,17 +50,17 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
                             showShimmerUtils()
                             superheroRecyclerView.adapter = superheroesAdapter
                         }
-                        shimmerViewContainer.apply {
+                        customShimmerLayout.root.apply {
                             hideShimmerUtils()
                             stopShimmer()
                         }
                     }
                 }
                 is DataResult.Error -> {
-                    binding.apply{
+                    binding.apply {
                         lottieAnimationViewNoInternet.showLottieUtil()
                         textViewError.text = "${result.error.message}."
-                        shimmerViewContainer.apply {
+                        customShimmerLayout.root.apply {
                             hideShimmerUtils()
                             stopShimmer()
                         }
@@ -67,7 +69,7 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
                 is DataResult.Loading -> {
                     binding.apply {
                         superheroRecyclerView.hideShimmerUtils()
-                        shimmerViewContainer.apply {
+                        customShimmerLayout.root.apply {
                             showShimmerUtils()
                             startShimmer()
                         }
@@ -76,6 +78,13 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
                 }
             }
         }
+    }
+
+    override fun onItemClick(superheroModel: HeroModel) {
+        val action = Intent(requireContext(), SuperheroDetailsActivity::class.java).apply{
+            putExtra(INTENT_KEY, superheroModel)
+        }
+        startActivity(action)
     }
 
     override fun onDestroyView() {

@@ -3,11 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/superheroesFragment">
+    app:startDestination="@id/superheroes">
 
     <fragment
-        android:id="@+id/superheroesFragment"
+        android:id="@+id/superheroes"
         android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.SuperheroesFragment"
-        android:label="fragment_superheroes"
+        android:label="Superhero Hive"
         tools:layout="@layout/fragment_superheroes" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.SettingsFragment"
+        android:label="@string/setting"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.FavoritesFragment"
+        android:label="@string/favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>
