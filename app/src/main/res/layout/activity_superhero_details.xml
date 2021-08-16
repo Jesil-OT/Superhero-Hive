@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:scrollbarSize="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.fragment.details.SuperheroDetailsActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_one"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/detail_image_race"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha=".7"
+                android:scaleType="fitXY"
+                tools:src="@drawable/ic_avengers" />
+
+            <TextView
+                android:id="@+id/detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="A-Bomb" />
+
+        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/detail_image_small"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="10dp"
+            app:civ_border_color="@color/purple_500"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/card_view_one"
+            app:layout_constraintEnd_toEndOf="@+id/card_view_one"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_one"
+            tools:src="@drawable/ic_unknown_publisher" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toStartOf="@+id/detail_image_small"
+            app:layout_constraintStart_toStartOf="@+id/card_view_one"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_one">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detail_real_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Richard Milhouse Jones" />
+
+                <TextView
+                    android:id="@+id/detail_place_of_birth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue_best"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_real_name"
+                    tools:text="Place Of Birth: Scarsdale, Arizona" />
+
+                <TextView
+                    android:id="@+id/detail_first_appearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/blue_best"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_place_of_birth"
+                    tools:text="First Appearance: Hulk Vol 2 #2 (April, 2008) (as A-Bomb)" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_first_appearance" />
+
+                <TextView
+                    android:id="@+id/detail_appearance_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/green_ok"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_appearance_eye_color"
+                    app:layout_constraintStart_toStartOf="@+id/detail_first_appearance"
+                    app:layout_constraintTop_toBottomOf="@+id/divider"
+                    tools:text="Gender: Male" />
+
+                <TextView
+                    android:id="@+id/detail_appearance_race"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/green_ok"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_appearance_gender"
+                    app:layout_constraintStart_toStartOf="@+id/detail_appearance_gender"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_appearance_gender"
+                    tools:text="Race: Human" />
+
+                <TextView
+                    android:id="@+id/detail_appearance_eye_color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green_ok"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_first_appearance"
+                    app:layout_constraintStart_toEndOf="@+id/detail_appearance_gender"
+                    app:layout_constraintTop_toTopOf="@+id/detail_appearance_gender"
+                    tools:text="Eye Color: Yellow" />
+
+                <TextView
+                    android:id="@+id/detail_appearance_hair_color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/green_ok"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="@+id/detail_appearance_race"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_appearance_eye_color"
+                    app:layout_constraintStart_toEndOf="@+id/detail_appearance_race"
+                    app:layout_constraintTop_toTopOf="@+id/detail_appearance_race"
+                    tools:text="Hair Color: No Hair" />
+
+                <TextView
+                    android:id="@+id/detail_appearance_height"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/green_ok"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_appearance_eye_color"
+                    app:layout_constraintStart_toStartOf="@+id/detail_appearance_race"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_appearance_race"
+                    tools:text="height: 6'8, 203 cm" />
+
+                <TextView
+                    android:id="@+id/detail_appearance_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/green_ok"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_appearance_height"
+                    app:layout_constraintStart_toStartOf="@+id/detail_appearance_height"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_appearance_height"
+                    tools:text="weight: 980 lb, 441 kg" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_three"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="@+id/card_view_one"
+            app:layout_constraintStart_toEndOf="@+id/card_view_two"
+            app:layout_constraintTop_toBottomOf="@+id/detail_image_small">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detail_connection_group_affiliation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/green_ok"
+                    android:textSize="11sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Hulk Family; Excelsior (sponsor), Avengers (honorary member); formerly partner of the Hulk, Captain America and Captain Marvel; Teen Brigade; ally of Rom" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_four"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="@+id/card_view_three"
+            app:layout_constraintStart_toStartOf="@+id/card_view_three"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_three">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detail_connection_relatives"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/green_ok"
+                    android:textSize="11sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased)" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_five"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toStartOf="@+id/card_view_three"
+            app:layout_constraintStart_toStartOf="@+id/card_view_two"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_two">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detail_work_occupation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="true"
+                    android:textColor="@color/green_ok"
+                    android:textSize="11sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Musician, adventurer, author; formerly talk show host" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/detail_image_publisher"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/card_view_five"
+            app:layout_constraintStart_toStartOf="@+id/card_view_five"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_five"
+            tools:srcCompat="@drawable/ic_marvel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
