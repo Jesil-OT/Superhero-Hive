@@ -14,6 +14,7 @@
         android:minHeight="?attr/actionBarSize"
         app:title="@string/superhero_hive"
         app:titleCentered="true"
+        android:alpha=".5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
