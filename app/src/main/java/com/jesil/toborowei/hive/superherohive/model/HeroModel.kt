@@ -1,7 +1,6 @@
 package com.jesil.toborowei.hive.superherohive.model
 
 import android.os.Parcelable
-import com.bumptech.glide.load.resource.bitmap.VideoDecoder.parcel
 import com.jesil.toborowei.hive.superherohive.model.objects.*
 import kotlinx.parcelize.Parcelize
 

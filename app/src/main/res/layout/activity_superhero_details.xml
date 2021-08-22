@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:scrollbarSize="0dp">
+    android:scrollbarSize="0dp"
+    tools:context=".ui.fragment.details.SuperheroDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.fragment.details.SuperheroDetailsActivity">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_one"
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="300dp"
             app:cardCornerRadius="4dp"
             app:cardElevation="6dp"
             app:cardUseCompatPadding="true"
@@ -24,23 +24,18 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:layout_height="wrap_content"
                 android:id="@+id/detail_image_race"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:alpha=".7"
-                android:scaleType="fitXY"
+                android:contentDescription="@string/details_friends"
                 tools:src="@drawable/ic_avengers" />
 
             <TextView
                 android:id="@+id/detail_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                style="@style/DetailsTextNameStyle"
                 tools:text="A-Bomb" />
 
         </androidx.cardview.widget.CardView>
@@ -49,26 +44,24 @@
             android:id="@+id/detail_image_small"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="18dp"
             android:elevation="10dp"
             app:civ_border_color="@color/purple_500"
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/card_view_one"
             app:layout_constraintEnd_toEndOf="@+id/card_view_one"
-            app:layout_constraintTop_toBottomOf="@+id/card_view_one"
             tools:src="@drawable/ic_unknown_publisher" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_two"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             app:cardCornerRadius="4dp"
             app:cardElevation="6dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toStartOf="@+id/detail_image_small"
             app:layout_constraintStart_toStartOf="@+id/card_view_one"
-            app:layout_constraintTop_toBottomOf="@+id/card_view_one">
+            app:layout_constraintTop_toBottomOf="@+id/card_view_six">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -78,14 +71,10 @@
                     android:id="@+id/detail_real_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textAlignment="center"
-                    android:textColor="?attr/colorOnPrimary"
-                    android:textSize="18sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    style="@style/DetailsTextRealNameStyle"
                     tools:text="Richard Milhouse Jones" />
 
                 <TextView
@@ -95,13 +84,10 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue_best"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_real_name"
+                    style="@style/DetailsTextPobAndFaStyle"
                     tools:text="Place Of Birth: Scarsdale, Arizona" />
 
                 <TextView
@@ -111,14 +97,11 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/blue_best"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_place_of_birth"
-                    tools:text="First Appearance: Hulk Vol 2 #2 (April, 2008) (as A-Bomb)" />
+                    style="@style/DetailsTextPobAndFaStyle"
+                    tools:text="First Appearance: Hulk Vol 2 #2 (April, 2008) (as A-Bomb)"/>
 
                 <View
                     android:id="@+id/divider"
@@ -137,13 +120,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/green_ok"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toStartOf="@+id/detail_appearance_eye_color"
                     app:layout_constraintStart_toStartOf="@+id/detail_first_appearance"
                     app:layout_constraintTop_toBottomOf="@+id/divider"
+                    style="@style/DetailsTextAppearanceStyle"
                     tools:text="Gender: Male" />
 
                 <TextView
@@ -151,52 +131,44 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/green_ok"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="@+id/detail_appearance_gender"
                     app:layout_constraintStart_toStartOf="@+id/detail_appearance_gender"
                     app:layout_constraintTop_toBottomOf="@+id/detail_appearance_gender"
-                    tools:text="Race: Human" />
+                    style="@style/DetailsTextAppearanceStyle"
+                    tools:text="Race: Human"/>
 
                 <TextView
                     android:id="@+id/detail_appearance_eye_color"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/green_ok"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="@+id/detail_first_appearance"
                     app:layout_constraintStart_toEndOf="@+id/detail_appearance_gender"
                     app:layout_constraintTop_toTopOf="@+id/detail_appearance_gender"
-                    tools:text="Eye Color: Yellow" />
+                    style="@style/DetailsTextAppearanceStyle"
+                    tools:text="Eye Color: Yellow"/>
 
                 <TextView
                     android:id="@+id/detail_appearance_hair_color"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/green_ok"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
+                    style="@style/DetailsTextAppearanceStyle"
                     app:layout_constraintBottom_toBottomOf="@+id/detail_appearance_race"
                     app:layout_constraintEnd_toEndOf="@+id/detail_appearance_eye_color"
                     app:layout_constraintStart_toEndOf="@+id/detail_appearance_race"
-                    app:layout_constraintTop_toTopOf="@+id/detail_appearance_race"
-                    tools:text="Hair Color: No Hair" />
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_appearance_eye_color"
+                    tools:text="Hair Color: No Hair"/>
 
                 <TextView
                     android:id="@+id/detail_appearance_height"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/green_ok"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="@+id/detail_appearance_eye_color"
                     app:layout_constraintStart_toStartOf="@+id/detail_appearance_race"
                     app:layout_constraintTop_toBottomOf="@+id/detail_appearance_race"
-                    tools:text="height: 6'8, 203 cm" />
+                    style="@style/DetailsTextAppearanceStyle"
+                    tools:text="height: 6'8, 203 cm"/>
 
                 <TextView
                     android:id="@+id/detail_appearance_weight"
@@ -204,14 +176,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:textColor="@color/green_ok"
-                    android:textSize="12sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/detail_appearance_height"
                     app:layout_constraintStart_toStartOf="@+id/detail_appearance_height"
                     app:layout_constraintTop_toBottomOf="@+id/detail_appearance_height"
-                    tools:text="weight: 980 lb, 441 kg" />
+                    style="@style/DetailsTextAppearanceStyle"
+                    tools:text="weight: 980 lb, 441 kg"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -226,7 +196,7 @@
             app:cardUseCompatPadding="true"
             app:layout_constraintEnd_toEndOf="@+id/card_view_one"
             app:layout_constraintStart_toEndOf="@+id/card_view_two"
-            app:layout_constraintTop_toBottomOf="@+id/detail_image_small">
+            app:layout_constraintTop_toTopOf="@+id/card_view_two">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -234,23 +204,12 @@
 
                 <TextView
                     android:id="@+id/detail_connection_group_affiliation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="true"
-                    android:textColor="@color/green_ok"
-                    android:textSize="11sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    style="@style/DetailsTextConnectionStyle"
                     tools:text="Hulk Family; Excelsior (sponsor), Avengers (honorary member); formerly partner of the Hulk, Captain America and Captain Marvel; Teen Brigade; ally of Rom" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -274,24 +233,12 @@
 
                 <TextView
                     android:id="@+id/detail_connection_relatives"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="true"
-                    android:textColor="@color/green_ok"
-                    android:textSize="11sp"
-                    android:textStyle="bold|italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased)" />
-
-
+                    style="@style/DetailsTextConnectionStyle"
+                    tools:text="Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased)"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -315,25 +262,218 @@
 
                 <TextView
                     android:id="@+id/detail_work_occupation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:textAlignment="viewStart"
-                    android:textAllCaps="true"
-                    android:textColor="@color/green_ok"
-                    android:textSize="11sp"
-                    android:textStyle="bold|italic"
+                    style="@style/DetailsTextConnectionStyle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Musician, adventurer, author; formerly talk show host" />
+                    tools:text="Musician, adventurer, author; formerly talk show host"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_six"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view_one">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.ramijemli.percentagechartview.PercentageChartView
+                    android:id="@+id/detail_intelligence"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/detail_durability"
+                    app:layout_constraintTop_toTopOf="@+id/detail_durability"
+                    app:pcv_animDuration="2200"
+                    app:pcv_animInterpolator="anticipate_overshoot"
+                    app:pcv_backgroundBarColor="@color/green_light"
+                    app:pcv_drawBackgroundBar="false"
+                    app:pcv_mode="ring"
+                    app:pcv_orientation="clockwise"
+                    app:pcv_progress="50"
+                    app:pcv_progressBarThickness="7dp"
+                    app:pcv_progressColor="@color/green_ok"
+                    app:pcv_textColor="@color/green_light"
+                    app:pcv_textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textview_intelligence"
+                    style="@style/DetailsTextPowerStartStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intelligence"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_intelligence"
+                    app:layout_constraintStart_toStartOf="@+id/detail_intelligence"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_intelligence" />
+
+                <com.ramijemli.percentagechartview.PercentageChartView
+                    android:id="@+id/detail_strength"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_power"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_speed"
+                    app:pcv_animDuration="2200"
+                    app:pcv_animInterpolator="anticipate_overshoot"
+                    app:pcv_backgroundBarColor="@color/green_light"
+                    app:pcv_drawBackgroundBar="false"
+                    app:pcv_mode="ring"
+                    app:pcv_orientation="clockwise"
+                    app:pcv_progress="50"
+                    app:pcv_progressBarThickness="7dp"
+                    app:pcv_progressColor="@color/green_ok"
+                    app:pcv_textColor="@color/green_light"
+                    app:pcv_textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textview_strength"
+                    style="@style/DetailsTextPowerStartStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/strength"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_strength"
+                    app:layout_constraintStart_toStartOf="@+id/detail_strength"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_strength"/>
+
+                <com.ramijemli.percentagechartview.PercentageChartView
+                    android:id="@+id/detail_speed"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_durability"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:pcv_animDuration="2200"
+                    app:pcv_animInterpolator="anticipate_overshoot"
+                    app:pcv_backgroundBarColor="@color/green_light"
+                    app:pcv_drawBackgroundBar="false"
+                    app:pcv_mode="ring"
+                    app:pcv_orientation="clockwise"
+                    app:pcv_progress="50"
+                    app:pcv_progressBarThickness="7dp"
+                    app:pcv_progressColor="@color/green_ok"
+                    app:pcv_textColor="@color/green_light"
+                    app:pcv_textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textview_speed"
+                    style="@style/DetailsTextPowerStartStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speed"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_speed"
+                    app:layout_constraintStart_toStartOf="@+id/detail_speed"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_speed"/>
+
+                <com.ramijemli.percentagechartview.PercentageChartView
+                    android:id="@+id/detail_durability"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_intelligence"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/detail_speed"
+                    app:layout_constraintTop_toTopOf="@+id/detail_speed"
+                    app:pcv_animDuration="2200"
+                    app:pcv_animInterpolator="anticipate_overshoot"
+                    app:pcv_backgroundBarColor="@color/green_light"
+                    app:pcv_drawBackgroundBar="false"
+                    app:pcv_mode="ring"
+                    app:pcv_orientation="clockwise"
+                    app:pcv_progress="50"
+                    app:pcv_progressBarThickness="7dp"
+                    app:pcv_progressColor="@color/green_ok"
+                    app:pcv_textColor="@color/green_light"
+                    app:pcv_textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textview_durability"
+                    style="@style/DetailsTextPowerStartStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/durability"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_durability"
+                    app:layout_constraintStart_toStartOf="@+id/detail_durability"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_durability"/>
+
+                <com.ramijemli.percentagechartview.PercentageChartView
+                    android:id="@+id/detail_power"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textview_strength"
+                    app:layout_constraintEnd_toStartOf="@+id/detail_combat"
+                    app:layout_constraintStart_toEndOf="@+id/detail_strength"
+                    app:pcv_animDuration="2200"
+                    app:pcv_animInterpolator="anticipate_overshoot"
+                    app:pcv_backgroundBarColor="@color/green_light"
+                    app:pcv_drawBackgroundBar="false"
+                    app:pcv_mode="ring"
+                    app:pcv_orientation="clockwise"
+                    app:pcv_progress="50"
+                    app:pcv_progressBarThickness="7dp"
+                    app:pcv_progressColor="@color/green_ok"
+                    app:pcv_textColor="@color/green_light"
+                    app:pcv_textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textview_power"
+                    style="@style/DetailsTextPowerStartStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_power"
+                    app:layout_constraintStart_toStartOf="@+id/detail_power"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_power"/>
+
+                <com.ramijemli.percentagechartview.PercentageChartView
+                    android:id="@+id/detail_combat"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/detail_power"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/detail_power"
+                    app:layout_constraintTop_toTopOf="@+id/detail_power"
+                    app:pcv_animDuration="2200"
+                    app:pcv_animInterpolator="anticipate_overshoot"
+                    app:pcv_backgroundBarColor="@color/green_light"
+                    app:pcv_drawBackgroundBar="false"
+                    app:pcv_mode="ring"
+                    app:pcv_orientation="clockwise"
+                    app:pcv_progress="50"
+                    app:pcv_progressBarThickness="7dp"
+                    app:pcv_progressColor="@color/green_ok"
+                    app:pcv_textColor="@color/green_light"
+                    app:pcv_textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textview_combat"
+                    style="@style/DetailsTextPowerStartStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/combat"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_combat"
+                    app:layout_constraintStart_toStartOf="@+id/detail_combat"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_combat"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -342,13 +482,14 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/card_view_five"
-            app:layout_constraintStart_toStartOf="@+id/card_view_five"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view_five"
             tools:srcCompat="@drawable/ic_marvel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>

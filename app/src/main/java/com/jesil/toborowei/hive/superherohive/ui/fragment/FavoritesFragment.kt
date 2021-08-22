@@ -3,18 +3,19 @@ package com.jesil.toborowei.hive.superherohive.ui.fragment
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.core.graphics.ColorUtils
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentFavoritesBinding
+import com.ramijemli.percentagechartview.callback.AdaptiveColorProvider
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass.
  * Use the [FavoritesFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-
+@AndroidEntryPoint
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     private var _binding: FragmentFavoritesBinding? = null
     private val binding get() = _binding!!

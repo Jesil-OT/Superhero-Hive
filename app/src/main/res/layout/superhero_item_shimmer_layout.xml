@@ -37,6 +37,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="10dp"
             android:background="@color/darkDarkGray"
+            android:contentDescription="@string/item_superhero_publisher"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_view_name"
