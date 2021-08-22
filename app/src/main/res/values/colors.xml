@@ -12,6 +12,7 @@
 
     <color name="red_bad">#F32121</color>
     <color name="green_ok">#2E7D32</color>
+    <color name="green_light">#CB87DC8C</color>
     <color name="blue_good">#5362B6</color>
     <color name="blue_best">#307CB8</color>
 </resources>

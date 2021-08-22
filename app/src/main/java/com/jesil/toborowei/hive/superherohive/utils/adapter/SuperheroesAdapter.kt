@@ -49,12 +49,13 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
             .error(R.drawable.ic_broken_image)
 
         fun bind(heroModel: HeroModel) {
-            binding.apply {
+            with(binding){
                 Glide.with(itemView)
                     .setDefaultRequestOptions(requestOptions)
                     .load(heroModel.images.md)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imageSrcMedium)
+
                 when (heroModel.biography.publisher) {
                     MARVEL -> {
                         Glide.with(itemView)
@@ -67,6 +68,10 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
                             .load(R.drawable.ic_dc)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(imageRace)
+                    }
+                    else ->
+                    {
+                        imageRace.setImageResource(R.drawable.ic_unknown_publisher)
                     }
                 }
                 textViewName.text = heroModel.name

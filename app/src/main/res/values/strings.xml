@@ -9,5 +9,13 @@
     <string name="superhero_image">Superhero Image</string>
     <string name="detail_large_image">detail large image</string>
 
-    <string name="superhero_hive">Superhero Hive</string>
+    <string name="network_error">Unable to Connect to the Internet Right now, Please click on superheroes to refresh</string>
+    <string name="durability">Durability</string>
+    <string name="speed">Speed</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="strength">Strength</string>
+    <string name="power">Power</string>
+    <string name="combat">Combat</string>
+    <string name="item_superhero_publisher">Item Superhero Publisher</string>
+    <string name="details_friends">Details friends</string>
 </resources>
