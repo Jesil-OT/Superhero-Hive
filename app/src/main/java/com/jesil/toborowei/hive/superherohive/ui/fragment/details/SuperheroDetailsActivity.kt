@@ -10,7 +10,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.ActivitySuperheroDetailsBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.jesil.toborowei.hive.superherohive.utils.AppConstants
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
+import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.providerUtil
@@ -46,18 +48,24 @@ class SuperheroDetailsActivity : AppCompatActivity() {
                 detailConnectionRelatives.text = "Relative: ${result.connections.relatives}"
                 detailWorkOccupation.text = "Work: ${result.work.occupation}"
 
-                when (result.biography.publisher) {
-                    MARVEL -> {
+                when {
+                    result.biography.publisher.equals(MARVEL, true) -> {
                         Glide.with(this@SuperheroDetailsActivity)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_avengers)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImageRace)
                     }
-                    DC -> {
+                    result.biography.publisher.equals(DC, true) -> {
                         Glide.with(this@SuperheroDetailsActivity)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_justice_leauge)
+                            .transition(DrawableTransitionOptions.withCrossFade())
+                            .into(detailImageRace)
+                    }
+                    result.biography.publisher.equals(IDW, true) -> {
+                        Glide.with(this@SuperheroDetailsActivity)
+                            .load(R.drawable.ic_idw)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImageRace)
                     }
@@ -71,18 +79,24 @@ class SuperheroDetailsActivity : AppCompatActivity() {
                     .load(result.images.md)
                     .into(detailImageSmall)
 
-                when (result.biography.publisher) {
-                    MARVEL -> {
+                when {
+                    result.biography.publisher.equals(MARVEL, true) -> {
                         Glide.with(this@SuperheroDetailsActivity)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_marvel)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImagePublisher)
                     }
-                    DC -> {
+                    result.biography.publisher.equals(DC, true) -> {
                         Glide.with(this@SuperheroDetailsActivity)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_dc)
+                            .transition(DrawableTransitionOptions.withCrossFade())
+                            .into(detailImagePublisher)
+                    }
+                    result.biography.publisher.equals(IDW, true) -> {
+                        Glide.with(this@SuperheroDetailsActivity)
+                            .load(R.drawable.ic_idw)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImagePublisher)
                     }

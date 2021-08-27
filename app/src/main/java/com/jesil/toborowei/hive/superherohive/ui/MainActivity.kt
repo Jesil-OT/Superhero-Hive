@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         with(binding) {
             setContentView(root)
+            setSupportActionBar(toolbar.root)
         }
 
         val navHostFragment =

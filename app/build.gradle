@@ -72,10 +72,12 @@ dependencies {
     def shimmerVersion = "0.5.0"
     implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
 
-    // Retrofit + GSON
+    // Retrofit + GSON + Logging Interceptor
     def retrofitVersion = '2.9.0'
+    def loggingInterceptorVersion = '4.9.1'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
 
     // lottie
     def lottieVersion = "3.4.0"
@@ -85,8 +87,12 @@ dependencies {
     def percentageVersion = "0.3.1"
     implementation "com.ramijemli.percentagechartview:percentagechartview:$percentageVersion"
 
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // rounded image
+    def circleImageViewVersion = "3.1.0"
+    implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
 
+    def smallbang_version = "1.2.2"
+    implementation "pub.hanks:smallbang:$smallbang_version"
 }
 kapt {
     correctErrorTypes true

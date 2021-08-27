@@ -1,5 +1,6 @@
 package com.jesil.toborowei.hive.superherohive.utils.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,6 +13,7 @@ import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.ItemEachHeroBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
+import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
 
@@ -42,6 +44,22 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
                     _listener.onItemClick(item)
                 }
             }
+            binding.addToFavorites.setOnClickListener {
+                val item = getItem(adapterPosition)
+                if (item != null) {
+                    if (binding.addToFavorites.isSelected) {
+                        binding.addToFavorites.isSelected = false
+                        Log.d("TAG", ": Unliked")
+                    } else {
+                        with(binding.addToFavorites) {
+                            Log.d("TAG", ": liked")
+                            isSelected = true
+                            likeAnimation()
+                        }
+                    }
+
+                }
+            }
         }
 
         private val requestOptions = RequestOptions()
@@ -49,28 +67,30 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
             .error(R.drawable.ic_broken_image)
 
         fun bind(heroModel: HeroModel) {
-            with(binding){
+            with(binding) {
                 Glide.with(itemView)
                     .setDefaultRequestOptions(requestOptions)
                     .load(heroModel.images.md)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imageSrcMedium)
 
-                when (heroModel.biography.publisher) {
-                    MARVEL -> {
+                when {
+                    heroModel.biography.publisher.equals(MARVEL, true) -> {
                         Glide.with(itemView)
                             .load(R.drawable.ic_marvel)
-                            .transition(DrawableTransitionOptions.withCrossFade())
                             .into(imageRace)
                     }
-                    DC -> {
+                    heroModel.biography.publisher.equals(DC, true) -> {
                         Glide.with(itemView)
                             .load(R.drawable.ic_dc)
-                            .transition(DrawableTransitionOptions.withCrossFade())
                             .into(imageRace)
                     }
-                    else ->
-                    {
+                    heroModel.biography.publisher.equals(IDW, true) -> {
+                        Glide.with(itemView)
+                            .load(R.drawable.ic_idw)
+                            .into(imageRace)
+                    }
+                    else -> {
                         imageRace.setImageResource(R.drawable.ic_unknown_publisher)
                     }
                 }
@@ -78,7 +98,6 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
             }
         }
     }
-
 
     class UserComparator : DiffUtil.ItemCallback<HeroModel>() {
         override fun areItemsTheSame(oldItem: HeroModel, newItem: HeroModel): Boolean {

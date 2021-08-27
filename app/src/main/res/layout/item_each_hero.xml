@@ -20,6 +20,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <xyz.hanks.library.bang.SmallBangView
+            android:id="@+id/add_to_favorites"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/add_to_favorites_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/like_button"
+                android:elevation="10dp"
+                android:src="@drawable/heart_selector" />
+        </xyz.hanks.library.bang.SmallBangView>
+
         <TextView
             android:id="@+id/text_view_name"
             android:layout_width="0dp"
@@ -43,6 +61,26 @@
             app:layout_constraintTop_toTopOf="@+id/text_view_name"
             app:layout_constraintVertical_bias="0.56"
             tool:src="@drawable/ic_marvel" />
+
+       <!-- <com.like.LikeButton
+            android:id = "@+id/likeButtonHeart"
+            android:layout_gravity = "center"
+            android:layout_marginStart = "16dp"
+            android:layout_marginEnd = "15dp"
+            android:layout_marginBottom = "8dp"
+            android:layout_marginTop = "4dp"
+            android:layout_width = "140dp"
+            android:layout_height = "140dp"
+            app:icon_type = "heart"
+            app:circle_start_color = "#F1DD31"
+            app:dots_primary_color = "#0E77CC"
+            app:dots_secondary_color = "#FF1A4F"
+            app:circle_end_color = "#12A518"
+            app:icon_size = "40dp"
+            app:liked = "false"
+            app:anim_scale_factor = "2"
+            app:is_enabled = "true" />-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
