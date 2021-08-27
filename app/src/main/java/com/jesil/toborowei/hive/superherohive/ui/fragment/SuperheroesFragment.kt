@@ -2,6 +2,7 @@ package com.jesil.toborowei.hive.superherohive.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -33,6 +34,9 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSuperheroesBinding.bind(view)
         initSuperHeroData()
+        binding.superheroRetry.setOnClickListener {
+           // viewModel.loadSuperHeroResult()
+        }
 
     }
 
@@ -41,35 +45,13 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
             when (result) {
                 is DataResult.Success -> {
                     superheroesAdapter.submitList(result.data)
-                    with(binding) {
-                        with(superheroRecyclerView) {
-                            showShimmerUtils()
-                            superheroRecyclerView.adapter = superheroesAdapter
-                        }
-                        with(customShimmerLayout.root) {
-                            hideShimmerUtils()
-                            stopShimmer()
-                        }
-                    }
+                    successViews()
                 }
                 is DataResult.Error -> {
-                    with(binding) {
-                        lottieAnimationViewNoInternet.showLottieUtil()
-                        textViewError.text = resources.getString(R.string.network_error)
-                        with(customShimmerLayout.root) {
-                            hideShimmerUtils()
-                            stopShimmer()
-                        }
-                    }
+                    errorViews()
                 }
                 is DataResult.Loading -> {
-                    with(binding) {
-                        superheroRecyclerView.hideShimmerUtils()
-                        with(customShimmerLayout.root) {
-                            showShimmerUtils()
-                            startShimmer()
-                        }
-                    }
+                    loadingViews()
                 }
             }
         }
@@ -85,5 +67,44 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun successViews(){
+        with(binding) {
+            with(binding) {
+                with(superheroRecyclerView) {
+                    showUtils()
+                    superheroRecyclerView.adapter = superheroesAdapter
+                }
+                with(customShimmerLayout.root) {
+                    hideUtils()
+                    stopShimmer()
+                }
+            }
+        }
+    }
+
+    private fun errorViews(){
+        with(binding) {
+            lottieAnimationViewNoInternet.showUtils()
+            textViewError.text = resources.getString(R.string.network_error)
+            with(customShimmerLayout.root) {
+                hideUtils()
+                stopShimmer()
+            }
+            with(superheroRetry){
+                showUtils()
+            }
+        }
+    }
+
+    private fun loadingViews(){
+        with(binding) {
+            superheroRecyclerView.hideUtils()
+            with(customShimmerLayout.root) {
+                showUtils()
+                startShimmer()
+            }
+        }
     }
 }

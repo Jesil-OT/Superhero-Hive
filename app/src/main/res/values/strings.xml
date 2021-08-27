@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SuperheroHive</string>
+    <string name="app_name">Superhero Hive</string>
     <string name="superheroes">Superheroes</string>
     <string name="favorites">Favorites</string>
     <string name="setting">Settings</string>
@@ -9,7 +9,7 @@
     <string name="superhero_image">Superhero Image</string>
     <string name="detail_large_image">detail large image</string>
 
-    <string name="network_error">Unable to Connect to the Internet Right now, Please click on superheroes to refresh</string>
+    <string name="network_error">Unable to Connect to the Internet Right now, Please click Retry</string>
     <string name="durability">Durability</string>
     <string name="speed">Speed</string>
     <string name="intelligence">Intelligence</string>
@@ -18,4 +18,6 @@
     <string name="combat">Combat</string>
     <string name="item_superhero_publisher">Item Superhero Publisher</string>
     <string name="details_friends">Details friends</string>
+    <string name="retry">Retry</string>
+    <string name="like_button">Like Button</string>
 </resources>

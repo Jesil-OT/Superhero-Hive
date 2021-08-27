@@ -15,7 +15,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_one"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             app:cardCornerRadius="4dp"
             app:cardElevation="6dp"
             app:cardUseCompatPadding="true"
@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/detail_image_race"
                 android:layout_width="match_parent"
-                android:alpha=".7"
+                android:alpha=".4"
+                android:scaleType="centerCrop"
                 android:contentDescription="@string/details_friends"
                 tools:src="@drawable/ic_avengers" />
 
@@ -297,17 +298,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/detail_durability"
                     app:layout_constraintTop_toTopOf="@+id/detail_durability"
-                    app:pcv_animDuration="2200"
-                    app:pcv_animInterpolator="anticipate_overshoot"
-                    app:pcv_backgroundBarColor="@color/green_light"
-                    app:pcv_drawBackgroundBar="false"
-                    app:pcv_mode="ring"
-                    app:pcv_orientation="clockwise"
-                    app:pcv_progress="50"
-                    app:pcv_progressBarThickness="7dp"
-                    app:pcv_progressColor="@color/green_ok"
-                    app:pcv_textColor="@color/green_light"
-                    app:pcv_textSize="13sp" />
+                    style="@style/SuperheroDetailsPercentageChartViewStyle"/>
 
                 <TextView
                     android:id="@+id/textview_intelligence"
@@ -328,17 +319,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textview_speed"
-                    app:pcv_animDuration="2200"
-                    app:pcv_animInterpolator="anticipate_overshoot"
-                    app:pcv_backgroundBarColor="@color/green_light"
-                    app:pcv_drawBackgroundBar="false"
-                    app:pcv_mode="ring"
-                    app:pcv_orientation="clockwise"
-                    app:pcv_progress="50"
-                    app:pcv_progressBarThickness="7dp"
-                    app:pcv_progressColor="@color/green_ok"
-                    app:pcv_textColor="@color/green_light"
-                    app:pcv_textSize="13sp" />
+                    style="@style/SuperheroDetailsPercentageChartViewStyle"/>
 
                 <TextView
                     android:id="@+id/textview_strength"
@@ -359,17 +340,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:pcv_animDuration="2200"
-                    app:pcv_animInterpolator="anticipate_overshoot"
-                    app:pcv_backgroundBarColor="@color/green_light"
-                    app:pcv_drawBackgroundBar="false"
-                    app:pcv_mode="ring"
-                    app:pcv_orientation="clockwise"
-                    app:pcv_progress="50"
-                    app:pcv_progressBarThickness="7dp"
-                    app:pcv_progressColor="@color/green_ok"
-                    app:pcv_textColor="@color/green_light"
-                    app:pcv_textSize="13sp" />
+                    style="@style/SuperheroDetailsPercentageChartViewStyle"/>
 
                 <TextView
                     android:id="@+id/textview_speed"
@@ -389,17 +360,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/detail_speed"
                     app:layout_constraintTop_toTopOf="@+id/detail_speed"
-                    app:pcv_animDuration="2200"
-                    app:pcv_animInterpolator="anticipate_overshoot"
-                    app:pcv_backgroundBarColor="@color/green_light"
-                    app:pcv_drawBackgroundBar="false"
-                    app:pcv_mode="ring"
-                    app:pcv_orientation="clockwise"
-                    app:pcv_progress="50"
-                    app:pcv_progressBarThickness="7dp"
-                    app:pcv_progressColor="@color/green_ok"
-                    app:pcv_textColor="@color/green_light"
-                    app:pcv_textSize="13sp" />
+                    style="@style/SuperheroDetailsPercentageChartViewStyle"/>
 
                 <TextView
                     android:id="@+id/textview_durability"
@@ -418,17 +379,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/textview_strength"
                     app:layout_constraintEnd_toStartOf="@+id/detail_combat"
                     app:layout_constraintStart_toEndOf="@+id/detail_strength"
-                    app:pcv_animDuration="2200"
-                    app:pcv_animInterpolator="anticipate_overshoot"
-                    app:pcv_backgroundBarColor="@color/green_light"
-                    app:pcv_drawBackgroundBar="false"
-                    app:pcv_mode="ring"
-                    app:pcv_orientation="clockwise"
-                    app:pcv_progress="50"
-                    app:pcv_progressBarThickness="7dp"
-                    app:pcv_progressColor="@color/green_ok"
-                    app:pcv_textColor="@color/green_light"
-                    app:pcv_textSize="13sp" />
+                    style="@style/SuperheroDetailsPercentageChartViewStyle"/>
 
                 <TextView
                     android:id="@+id/textview_power"
@@ -444,22 +395,13 @@
                     android:id="@+id/detail_combat"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
+                    style="@style/SuperheroDetailsPercentageChartViewStyle"
                     app:layout_constraintBottom_toBottomOf="@+id/detail_power"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/detail_power"
                     app:layout_constraintTop_toTopOf="@+id/detail_power"
-                    app:pcv_animDuration="2200"
-                    app:pcv_animInterpolator="anticipate_overshoot"
-                    app:pcv_backgroundBarColor="@color/green_light"
-                    app:pcv_drawBackgroundBar="false"
-                    app:pcv_mode="ring"
-                    app:pcv_orientation="clockwise"
-                    app:pcv_progress="50"
-                    app:pcv_progressBarThickness="7dp"
-                    app:pcv_progressColor="@color/green_ok"
-                    app:pcv_textColor="@color/green_light"
-                    app:pcv_textSize="13sp" />
+                    android:elevation="10dp"/>
 
                 <TextView
                     android:id="@+id/textview_combat"
@@ -483,11 +425,12 @@
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/card_view_five"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view_five"
+            app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@drawable/ic_marvel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

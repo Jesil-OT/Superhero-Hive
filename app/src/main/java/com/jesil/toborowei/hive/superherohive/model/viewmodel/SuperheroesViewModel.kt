@@ -24,6 +24,10 @@ class SuperheroesViewModel @Inject constructor(
     val heroDataList: LiveData<DataResult<List<HeroModel>>> = _heroDataList
 
     init {
+       loadSuperHeroResult()
+    }
+
+    fun loadSuperHeroResult(){
         viewModelScope.launch {
             heroRemoteDataSource.heroList
                 .onStart {

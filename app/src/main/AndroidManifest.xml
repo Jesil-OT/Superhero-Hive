@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SuperheroHive">
         <activity
+            android:theme="@style/SuperheroDetails"
             android:name=".ui.fragment.details.SuperheroDetailsActivity"
             android:exported="true" />
         <activity
