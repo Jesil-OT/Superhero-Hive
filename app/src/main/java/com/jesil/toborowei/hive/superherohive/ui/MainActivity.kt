@@ -2,12 +2,9 @@ package com.jesil.toborowei.hive.superherohive.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.ActivityMainBinding
@@ -31,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
         binding.apply {
             bottomNavigationView.setupWithNavController(navController)
+            bottomNavigationView.setOnItemReselectedListener {  }
         }
     }
-
 }
