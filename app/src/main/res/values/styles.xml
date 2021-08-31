@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ErrorTextStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextItemName" parent="TextAppearance.AppCompat.Light.SearchResult.Title">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:textColor">#FBFBFB</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailsTextNameStyle">
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailsTextRealNameStyle">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="DetailsTextPobAndFaStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blue_best</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="DetailsTextAppearanceStyle">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/green_ok</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="DetailsTextConnectionStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/green_ok</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="DetailsTextPowerStartStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- This style is for the progress state for the details screen -->
+
+    <style name="SuperheroDetailsPercentageChartViewStyle">
+        <item name="android:elevation">10dp</item>
+        <item name="pcv_animDuration">3300</item>
+        <item name="pcv_animInterpolator">anticipate_overshoot</item>
+        <item name="pcv_drawBackgroundBar">false</item>
+        <item name="pcv_mode">ring</item>
+        <item name="pcv_orientation">clockwise</item>
+        <item name="pcv_progress">0</item>
+        <item name="pcv_progressBarThickness">8dp</item>
+        <item name="pcv_textStyle">italic</item>
+        <item name="pcv_textSize">13sp</item>
+
+    </style>
+</resources>
