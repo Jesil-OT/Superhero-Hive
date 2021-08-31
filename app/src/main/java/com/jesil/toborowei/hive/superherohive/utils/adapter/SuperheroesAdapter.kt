@@ -9,14 +9,18 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.jesil.toborowei.hive.superherohive.R
+import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.ItemEachHeroBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
+import com.like.LikeButton
+import com.like.OnLikeListener
 
 class SuperheroesAdapter(
+    private val preferenceHelper: PreferenceHelper,
     private val _listener: OnItemClickListener,
     private val onItemLike: (item: HeroModel) -> Unit,
     private val onItemUnlike: (item: HeroModel) -> Unit
@@ -86,6 +90,16 @@ class SuperheroesAdapter(
                     }
                 }
                 textViewName.text = heroModel.name
+                addToFavorites.setOnLikeListener(object : OnLikeListener {
+                    override fun liked(likeButton: LikeButton?) {
+                        onItemLike(heroModel)
+                    }
+
+                    override fun unLiked(likeButton: LikeButton?) {
+                        onItemUnlike(heroModel)
+                    }
+                })
+                addToFavorites.isLiked = preferenceHelper.getFavorite(heroModel.id)
             }
         }
     }

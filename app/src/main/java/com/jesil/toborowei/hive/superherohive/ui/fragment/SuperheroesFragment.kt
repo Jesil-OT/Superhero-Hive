@@ -1,12 +1,12 @@
 package com.jesil.toborowei.hive.superherohive.ui.fragment
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jesil.toborowei.hive.superherohive.R
+import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentSuperheroesBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesViewModel
@@ -15,7 +15,6 @@ import com.jesil.toborowei.hive.superherohive.utils.*
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.adapter.SuperheroesAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.String.valueOf
 import javax.inject.Inject
 
 /**
@@ -26,30 +25,23 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClickListener {
+
     @Inject
-    lateinit var sharedPreferences: SharedPreferences
+    lateinit var preferenceHelper: PreferenceHelper
 
     private val viewModel: SuperheroesViewModel by viewModels()
     private var _binding: FragmentSuperheroesBinding? = null
     private val binding get() = _binding!!
 
     private val superheroesAdapter: SuperheroesAdapter by lazy {
-        SuperheroesAdapter(this,
+        SuperheroesAdapter(preferenceHelper, this,
             { item -> //liked
                 item.isFavorite = true
-                val editor = sharedPreferences.edit()
-                editor.apply {
-                    putBoolean(valueOf(item.id), true)
-                    apply()
-                }
+                preferenceHelper.addFavorite(item.id)
             },
             { item -> //unlike
                 item.isFavorite = false
-                val editor = sharedPreferences.edit()
-                editor.apply {
-                    putBoolean(valueOf(item.id), false)
-                    editor.apply()
-                }
+                preferenceHelper.removeFavorite(item.id)
             })
     }
 
