@@ -1,6 +1,5 @@
 package com.jesil.toborowei.hive.superherohive.utils.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -17,7 +16,11 @@ import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
 
-class SuperheroesAdapter(private val _listener: OnItemClickListener) :
+class SuperheroesAdapter(
+    private val _listener: OnItemClickListener,
+    private val onItemLike: (item: HeroModel) -> Unit,
+    private val onItemUnlike: (item: HeroModel) -> Unit
+) :
     ListAdapter<HeroModel, SuperheroesAdapter.SuperheroesViewHolder>(UserComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroesViewHolder {
@@ -29,7 +32,7 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
     override fun onBindViewHolder(holderSuperheroes: SuperheroesViewHolder, position: Int) {
         val currentItem = getItem(position)
         if (currentItem != null) {
-            holderSuperheroes.bind(currentItem)
+            holderSuperheroes.bind(currentItem, onItemLike, onItemUnlike)
         }
     }
 
@@ -44,29 +47,17 @@ class SuperheroesAdapter(private val _listener: OnItemClickListener) :
                     _listener.onItemClick(item)
                 }
             }
-            binding.addToFavorites.setOnClickListener {
-                val item = getItem(adapterPosition)
-                if (item != null) {
-                    if (binding.addToFavorites.isSelected) {
-                        binding.addToFavorites.isSelected = false
-                        Log.d("TAG", ": Unliked")
-                    } else {
-                        with(binding.addToFavorites) {
-                            Log.d("TAG", ": liked")
-                            isSelected = true
-                            likeAnimation()
-                        }
-                    }
-
-                }
-            }
         }
 
         private val requestOptions = RequestOptions()
             .placeholder(R.drawable.ic_on_loading_image)
             .error(R.drawable.ic_broken_image)
 
-        fun bind(heroModel: HeroModel) {
+        fun bind(
+            heroModel: HeroModel,
+            onItemLike: (item: HeroModel) -> Unit,
+            onItemUnlike: (item: HeroModel) -> Unit
+        ) {
             with(binding) {
                 Glide.with(itemView)
                     .setDefaultRequestOptions(requestOptions)

@@ -91,8 +91,9 @@ dependencies {
     def circleImageViewVersion = "3.1.0"
     implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
 
-    def smallbang_version = "1.2.2"
-    implementation "pub.hanks:smallbang:$smallbang_version"
+    // like button
+    def like_button_version = "0.2.3"
+    implementation "com.github.jd-alexander:LikeButton:$like_button_version"
 }
 kapt {
     correctErrorTypes true

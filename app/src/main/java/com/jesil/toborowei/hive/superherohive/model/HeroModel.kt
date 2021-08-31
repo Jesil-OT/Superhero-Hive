@@ -13,5 +13,6 @@ data class HeroModel(
     val images: Images,
     val name: String,
     val powerstats: Powerstats,
-    val work: Work
+    val work: Work,
+    var isFavorite : Boolean = false
 ) : Parcelable

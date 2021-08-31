@@ -70,7 +70,10 @@ class SuperheroDetailsActivity : AppCompatActivity() {
                             .into(detailImageRace)
                     }
                     else -> {
-                        detailImageRace.setImageResource(R.drawable.ic_unknown_publisher)
+                        Glide.with(this@SuperheroDetailsActivity)
+                            .setDefaultRequestOptions(requestOptions)
+                            .load(result.images.lg)
+                            .into(detailImageRace)
                     }
                 }
 

@@ -3,8 +3,8 @@ package com.jesil.toborowei.hive.superherohive.utils
 import android.graphics.Color
 import android.view.View
 import androidx.core.graphics.ColorUtils
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ramijemli.percentagechartview.callback.AdaptiveColorProvider
-
 
 fun View.showUtils() {
     visibility = View.VISIBLE
@@ -12,6 +12,18 @@ fun View.showUtils() {
 
 fun View.hideUtils() {
     visibility = View.GONE
+}
+
+fun SwipeRefreshLayout.colorSchemeAndRefreshListener(onRefresh: () -> Unit){
+    setColorSchemeResources(
+        android.R.color.holo_blue_bright,
+        android.R.color.holo_green_light,
+        android.R.color.holo_orange_light,
+        android.R.color.holo_red_light
+    )
+    setOnRefreshListener {
+        onRefresh()
+    }
 }
 
 val providerUtil: AdaptiveColorProvider =
