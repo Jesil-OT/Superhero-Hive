@@ -1,10 +1,8 @@
 package com.jesil.toborowei.hive.superherohive.model.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.jesil.toborowei.hive.superherohive.data.remote.HeroRemoteDataSource
+import com.jesil.toborowei.hive.superherohive.data.repository.MainRepository
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.utils.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,8 +13,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SuperheroesViewModel @Inject constructor(
-    private val heroRemoteDataSource: HeroRemoteDataSource
+class SuperheroesHiveViewModel @Inject constructor(
+    private val heroRemoteDataSource: HeroRemoteDataSource,
+    private val mainRepository: MainRepository
 ) : ViewModel() {
 
     private var _heroDataList: MutableLiveData<DataResult<List<HeroModel>>> =
@@ -40,5 +39,19 @@ class SuperheroesViewModel @Inject constructor(
                     _heroDataList.postValue(DataResult.Success(it))
                 }
         }
+    }
+
+    val allFavorites: LiveData<List<HeroModel>> = liveData {
+        mainRepository.getAllFavorites().collect { allFavorites ->
+            emit(allFavorites)
+        }
+    }
+
+    fun setFavorites(heroModel: HeroModel){
+        mainRepository.addFavorite(heroModel)
+    }
+
+    fun removeFavorites(heroModel: HeroModel){
+        mainRepository.removeFavorites(heroModel)
     }
 }

@@ -1,12 +1,20 @@
 package com.jesil.toborowei.hive.superherohive.model.objects
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Images(
-    val lg: String,
-    val md: String,
-    val sm: String,
-    val xs: String
+    @SerializedName("lg")
+    val largeImage: String,
+
+    @SerializedName("md")
+    val mediumImage: String,
+
+    @SerializedName("sm")
+    val smallImage: String,
+
+    @SerializedName("xs")
+    val extraSmallImage: String
 ) : Parcelable

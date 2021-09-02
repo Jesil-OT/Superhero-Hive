@@ -1,6 +1,6 @@
 package com.jesil.toborowei.hive.superherohive.di
 
-import com.jesil.toborowei.hive.superherohive.data.SuperheroApiService
+import com.jesil.toborowei.hive.superherohive.data.remote.SuperheroApiService
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -18,11 +18,10 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        val loggingInterceptor = HttpLoggingInterceptor()
-        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        return loggingInterceptor
-    }
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor =
+        HttpLoggingInterceptor().also {
+            it.level = HttpLoggingInterceptor.Level.BODY
+        }
 
     @Singleton
     @Provides

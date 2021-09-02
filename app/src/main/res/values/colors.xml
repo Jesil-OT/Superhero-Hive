@@ -17,4 +17,8 @@
     <color name="blue_best">#307CB8</color>
 
     <color name="status_bar_color">#2D2D2D</color>
+    <color name="like_button_end_color">#12A518</color>
+    <color name="like_button_start_color">#F1DD31</color>
+    <color name="like_button_dots_primary_color">#0E77CC</color>
+    <color name="like_button_dots_secondary_color">#FF1A4F</color>
 </resources>

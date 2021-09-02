@@ -65,7 +65,7 @@ class SuperheroesAdapter(
             with(binding) {
                 Glide.with(itemView)
                     .setDefaultRequestOptions(requestOptions)
-                    .load(heroModel.images.md)
+                    .load(heroModel.images.mediumImage)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(imageSrcMedium)
 

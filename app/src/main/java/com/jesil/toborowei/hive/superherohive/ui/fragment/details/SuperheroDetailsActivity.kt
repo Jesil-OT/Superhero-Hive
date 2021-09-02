@@ -10,7 +10,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.ActivitySuperheroDetailsBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
-import com.jesil.toborowei.hive.superherohive.utils.AppConstants
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
@@ -72,14 +71,14 @@ class SuperheroDetailsActivity : AppCompatActivity() {
                     else -> {
                         Glide.with(this@SuperheroDetailsActivity)
                             .setDefaultRequestOptions(requestOptions)
-                            .load(result.images.lg)
+                            .load(result.images.largeImage)
                             .into(detailImageRace)
                     }
                 }
 
                 Glide.with(this@SuperheroDetailsActivity)
                     .setDefaultRequestOptions(requestOptions)
-                    .load(result.images.md)
+                    .load(result.images.mediumImage)
                     .into(detailImageSmall)
 
                 when {
@@ -123,36 +122,36 @@ class SuperheroDetailsActivity : AppCompatActivity() {
 
                 with(detailIntelligence) {
                     setAdaptiveColorProvider(providerUtil)
-                    setProgress(result.powerstats.intelligence.toFloat(), true)
+                    setProgress(result.powerStats.intelligence.toFloat(), true)
                 }
 
                 with(detailStrength) {
                     setAdaptiveColorProvider(providerUtil)
-                    detailStrength.setProgress(result.powerstats.strength.toFloat(), true)
+                    detailStrength.setProgress(result.powerStats.strength.toFloat(), true)
                 }
 
                 with(detailSpeed) {
                     setAdaptiveColorProvider(providerUtil)
-                    setProgress(result.powerstats.speed.toFloat(), true)
+                    setProgress(result.powerStats.speed.toFloat(), true)
                 }
 
                 with(detailDurability) {
                     setAdaptiveColorProvider(providerUtil)
-                    detailDurability.setProgress(result.powerstats.durability.toFloat(), true)
+                    detailDurability.setProgress(result.powerStats.durability.toFloat(), true)
                 }
 
                 with(detailPower) {
                     setAdaptiveColorProvider(providerUtil)
-                    setProgress(result.powerstats.power.toFloat(), true)
+                    setProgress(result.powerStats.power.toFloat(), true)
                 }
 
-                if (result.powerstats.combat > 100) {
+                if (result.powerStats.combat > 100) {
                     detailCombat.visibility = View.GONE
                     textviewCombat.visibility = View.GONE
                 } else {
                     with(detailCombat) {
                         setAdaptiveColorProvider(providerUtil)
-                        setProgress(result.powerstats.combat.toFloat(), true)
+                        setProgress(result.powerStats.combat.toFloat(), true)
                     }
                 }
             }

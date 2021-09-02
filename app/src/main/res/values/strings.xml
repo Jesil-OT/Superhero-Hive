@@ -20,4 +20,6 @@
     <string name="details_friends">Details friends</string>
     <string name="retry">Retry</string>
     <string name="like_button">Like Button</string>
+    <string name="favorites_add_image">Favorites add image</string>
+    <string name="favorites_text_description">All your favorites will be shown here, so go ahead and like something</string>
 </resources>
