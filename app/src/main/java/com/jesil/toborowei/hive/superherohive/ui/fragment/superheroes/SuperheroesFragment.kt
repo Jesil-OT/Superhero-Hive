@@ -1,15 +1,16 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment
+package com.jesil.toborowei.hive.superherohive.ui.fragment.superheroes
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentSuperheroesBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
-import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesViewModel
+import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesHiveViewModel
 import com.jesil.toborowei.hive.superherohive.ui.fragment.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.*
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
@@ -29,8 +30,9 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     @Inject
     lateinit var preferenceHelper: PreferenceHelper
 
-    private val viewModel: SuperheroesViewModel by viewModels()
+    private val hiveViewModel: SuperheroesHiveViewModel by viewModels()
     private var _binding: FragmentSuperheroesBinding? = null
+    private var _toast: Toast? = null
     private val binding get() = _binding!!
 
     private val superheroesAdapter: SuperheroesAdapter by lazy {
@@ -38,10 +40,16 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
             { item -> //liked
                 item.isFavorite = true
                 preferenceHelper.addFavorite(item.id)
+                hiveViewModel.setFavorites(item)
+                showToast("added ${item.name} to favorites")
+
             },
             { item -> //unlike
                 item.isFavorite = false
                 preferenceHelper.removeFavorite(item.id)
+                hiveViewModel.removeFavorites(item)
+                _toast?.cancel()
+                showToast("removed ${item.name} from favorites")
             })
     }
 
@@ -49,16 +57,16 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSuperheroesBinding.bind(view)
         initSuperHeroData()
-        with(binding.retry) {
+        binding.retry.apply {
             colorSchemeAndRefreshListener {
-                viewModel.loadSuperHeroResult()
+                hiveViewModel.loadSuperHeroResult()
                 hideErrorForNewData()
             }
         }
     }
 
     private fun initSuperHeroData() {
-        viewModel.heroDataList.observe(viewLifecycleOwner) { result ->
+        hiveViewModel.heroDataList.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is DataResult.Success -> {
                     superheroesAdapter.submitList(result.data)
@@ -81,18 +89,13 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
         startActivity(action)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     private fun successViews() {
-        with(binding) {
-            with(superheroRecyclerView) {
+        binding.apply {
+            superheroRecyclerView.apply {
                 showUtils()
                 superheroRecyclerView.adapter = superheroesAdapter
             }
-            with(customShimmerLayout.root) {
+            customShimmerLayout.root.apply {
                 hideUtils()
                 stopShimmer()
             }
@@ -101,13 +104,13 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     }
 
     private fun errorViews() {
-        with(binding) {
+        binding.apply {
             lottieAnimationViewNoInternet.showUtils()
-            with(textViewError) {
+            textViewError.apply {
                 showUtils()
                 text = resources.getString(R.string.network_error)
             }
-            with(customShimmerLayout.root) {
+            customShimmerLayout.root.apply {
                 hideUtils()
                 stopShimmer()
             }
@@ -116,9 +119,9 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     }
 
     private fun loadingViews() {
-        with(binding) {
+        binding.apply {
             superheroRecyclerView.hideUtils()
-            with(customShimmerLayout.root) {
+            customShimmerLayout.root.apply {
                 showUtils()
                 startShimmer()
             }
@@ -127,10 +130,26 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     }
 
     private fun hideErrorForNewData() {
-        with(binding) {
+        binding.apply {
             lottieAnimationViewNoInternet.hideUtils()
             textViewError.hideUtils()
             retry.isRefreshing = false
         }
+    }
+
+    private fun showToast(message: String) {
+        _toast = Toast.makeText(
+            requireContext(),
+            message,
+            Toast.LENGTH_SHORT
+        )
+        _toast?.show()
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        _toast?.cancel()
     }
 }

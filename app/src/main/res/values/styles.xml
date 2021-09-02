@@ -5,7 +5,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="TextItemName" parent="TextAppearance.AppCompat.Light.SearchResult.Title">
@@ -84,6 +84,23 @@
         <item name="pcv_progressBarThickness">8dp</item>
         <item name="pcv_textStyle">italic</item>
         <item name="pcv_textSize">13sp</item>
+
+    </style>
+
+    <!-- This style is for the like button -->
+
+    <style name="LikeButtonStyle">
+        <item name="like_drawable">@drawable/ic_heart_selected</item>
+        <item name="unlike_drawable">@drawable/ic_heart</item>
+        <item name="anim_scale_factor">2</item>
+        <item name="circle_end_color">@color/like_button_end_color</item>
+        <item name="circle_start_color">@color/like_button_start_color</item>
+        <item name="dots_primary_color">@color/like_button_dots_primary_color</item>
+        <item name="dots_secondary_color">@color/like_button_dots_secondary_color</item>
+        <item name="icon_size">38dp</item>
+        <item name="icon_type">heart</item>
+        <item name="is_enabled">true</item>
+        <item name="liked">false</item>
 
     </style>
 </resources>

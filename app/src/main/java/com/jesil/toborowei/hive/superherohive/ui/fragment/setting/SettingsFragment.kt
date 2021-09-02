@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment
+package com.jesil.toborowei.hive.superherohive.ui.fragment.setting
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

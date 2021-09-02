@@ -14,7 +14,7 @@
         android:layout_height="260dp"
         android:contentDescription="@string/superhero_image"
         android:scaleType="fitXY"
-        tool:src="@drawable/ic_launcher_background" />
+        tool:src="@tools:sample/backgrounds/scenic" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,22 +22,12 @@
 
         <com.like.LikeButton
             android:id="@+id/add_to_favorites"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            style="@style/LikeButtonStyle"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:anim_scale_factor="2"
-            app:circle_end_color="#12A518"
-            app:circle_start_color="#F1DD31"
-            app:dots_primary_color="#0E77CC"
-            app:dots_secondary_color="#FF1A4F"
-            app:icon_size="27dp"
-            app:icon_type="heart"
-            app:is_enabled="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:liked="false" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_view_name"

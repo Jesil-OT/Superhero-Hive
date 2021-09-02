@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/superheroes"
-        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.SuperheroesFragment"
+        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.superheroes.SuperheroesFragment"
         android:label="Superhero Hive"
         tools:layout="@layout/fragment_superheroes" />
     <fragment
         android:id="@+id/settings"
-        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.SettingsFragment"
+        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.setting.SettingsFragment"
         android:label="@string/setting"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/favorites"
-        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.FavoritesFragment"
+        android:name="com.jesil.toborowei.hive.superherohive.ui.fragment.favorites.FavoritesFragment"
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" />
 </navigation>

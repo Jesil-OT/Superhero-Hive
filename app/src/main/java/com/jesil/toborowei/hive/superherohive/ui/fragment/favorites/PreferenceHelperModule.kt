@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment
+package com.jesil.toborowei.hive.superherohive.ui.fragment.favorites
 
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelperImpl
