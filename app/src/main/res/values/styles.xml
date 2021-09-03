@@ -60,7 +60,7 @@
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/green_ok</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold|italic</item>
     </style>
 

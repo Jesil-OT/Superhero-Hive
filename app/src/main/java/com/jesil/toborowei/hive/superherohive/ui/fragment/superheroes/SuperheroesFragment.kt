@@ -10,7 +10,6 @@ import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentSuperheroesBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
-import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesHiveViewModel
 import com.jesil.toborowei.hive.superherohive.ui.fragment.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.*
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
@@ -30,7 +29,7 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     @Inject
     lateinit var preferenceHelper: PreferenceHelper
 
-    private val hiveViewModel: SuperheroesHiveViewModel by viewModels()
+    private val superheroesViewModel: SuperheroesViewModel by viewModels()
     private var _binding: FragmentSuperheroesBinding? = null
     private var _toast: Toast? = null
     private val binding get() = _binding!!
@@ -40,14 +39,15 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
             { item -> //liked
                 item.isFavorite = true
                 preferenceHelper.addFavorite(item.id)
-                hiveViewModel.setFavorites(item)
+                superheroesViewModel.setFavorites(item)
+                _toast?.cancel()
                 showToast("added ${item.name} to favorites")
 
             },
             { item -> //unlike
                 item.isFavorite = false
                 preferenceHelper.removeFavorite(item.id)
-                hiveViewModel.removeFavorites(item)
+                superheroesViewModel.removeFavorites(item)
                 _toast?.cancel()
                 showToast("removed ${item.name} from favorites")
             })
@@ -59,14 +59,14 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
         initSuperHeroData()
         binding.retry.apply {
             colorSchemeAndRefreshListener {
-                hiveViewModel.loadSuperHeroResult()
+                superheroesViewModel.loadSuperHeroResult()
                 hideErrorForNewData()
             }
         }
     }
 
     private fun initSuperHeroData() {
-        hiveViewModel.heroDataList.observe(viewLifecycleOwner) { result ->
+        superheroesViewModel.heroDataList.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is DataResult.Success -> {
                     superheroesAdapter.submitList(result.data)
@@ -114,6 +114,7 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
                 hideUtils()
                 stopShimmer()
             }
+            superheroRecyclerView.hideUtils()
             retry.isRefreshing = false
         }
     }
@@ -145,7 +146,6 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
         )
         _toast?.show()
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

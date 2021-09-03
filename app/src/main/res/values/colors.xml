@@ -13,7 +13,7 @@
     <color name="red_bad">#F32121</color>
     <color name="green_ok">#2E7D32</color>
     <color name="green_light">#CB87DC8C</color>
-    <color name="blue_good">#5362B6</color>
+    <color name="blue_good">#265BFF</color>
     <color name="blue_best">#307CB8</color>
 
     <color name="status_bar_color">#2D2D2D</color>
@@ -21,4 +21,5 @@
     <color name="like_button_start_color">#F1DD31</color>
     <color name="like_button_dots_primary_color">#0E77CC</color>
     <color name="like_button_dots_secondary_color">#FF1A4F</color>
+
 </resources>

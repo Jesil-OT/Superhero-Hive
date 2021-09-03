@@ -47,34 +47,10 @@ class SuperheroDetailsActivity : AppCompatActivity() {
                 detailConnectionRelatives.text = "Relative: ${result.connections.relatives}"
                 detailWorkOccupation.text = "Work: ${result.work.occupation}"
 
-                when {
-                    result.biography.publisher.equals(MARVEL, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .setDefaultRequestOptions(requestOptions)
-                            .load(R.drawable.ic_avengers)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(detailImageRace)
-                    }
-                    result.biography.publisher.equals(DC, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .setDefaultRequestOptions(requestOptions)
-                            .load(R.drawable.ic_justice_leauge)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(detailImageRace)
-                    }
-                    result.biography.publisher.equals(IDW, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .load(R.drawable.ic_idw)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(detailImageRace)
-                    }
-                    else -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .setDefaultRequestOptions(requestOptions)
-                            .load(result.images.largeImage)
-                            .into(detailImageRace)
-                    }
-                }
+                Glide.with(this@SuperheroDetailsActivity)
+                    .setDefaultRequestOptions(requestOptions)
+                    .load(result.images.largeImage)
+                    .into(detailImageRace)
 
                 Glide.with(this@SuperheroDetailsActivity)
                     .setDefaultRequestOptions(requestOptions)

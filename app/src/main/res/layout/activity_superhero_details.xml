@@ -327,9 +327,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/strength"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/detail_strength"
                     app:layout_constraintStart_toStartOf="@+id/detail_strength"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_strength"/>
+                    app:layout_constraintTop_toBottomOf="@+id/detail_strength" />
 
                 <com.ramijemli.percentagechartview.PercentageChartView
                     android:id="@+id/detail_speed"
@@ -432,6 +433,7 @@
             app:layout_constraintTop_toBottomOf="@+id/card_view_five"
             app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@drawable/ic_marvel" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

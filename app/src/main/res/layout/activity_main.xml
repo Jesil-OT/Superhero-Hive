@@ -18,7 +18,7 @@
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar_layout"/>
+            layout="@layout/toolbar_layout" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:elevation="0dp"
         app:labelVisibilityMode="labeled"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,6 +1,7 @@
 package com.jesil.toborowei.hive.superherohive.utils
 
 import android.graphics.Color
+import android.graphics.ColorMatrix
 import android.view.View
 import androidx.core.graphics.ColorUtils
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -30,11 +31,11 @@ val providerUtil: AdaptiveColorProvider =
     object : AdaptiveColorProvider {
         override fun provideTextColor(progress: Float): Int {
             return when{
-                progress <= 25f -> Color.RED
-                progress <= 50f -> Color.YELLOW
-                progress <= 75f -> Color.GREEN
-                progress <= 85 -> Color.CYAN
-                else -> Color.BLUE
+                progress <= 25f -> Color.parseColor("#F32121")
+                progress <= 50f -> Color.parseColor("#C6980D")
+                progress <= 75f -> Color.parseColor("#0D7711")
+                progress <= 85 -> Color.parseColor("#0B7EB1")
+                else -> Color.parseColor("#0F2FE1")
             }
         }
 
@@ -44,11 +45,11 @@ val providerUtil: AdaptiveColorProvider =
 
         override fun provideProgressColor(progress: Float): Int {
             return when {
-                progress <= 25f -> Color.RED
-                progress <= 50f -> Color.YELLOW
-                progress <= 75f -> Color.GREEN
-                progress <= 85f -> Color.CYAN
-                else -> Color.BLUE
+                progress <= 25f -> Color.parseColor("#F32121")
+                progress <= 50f -> Color.parseColor("#F1DD31")
+                progress <= 75f -> Color.parseColor("#0D7711")
+                progress <= 85f -> Color.parseColor("#0B7EB1")
+                else -> Color.parseColor("#0F2FE1")
             }
         }
 

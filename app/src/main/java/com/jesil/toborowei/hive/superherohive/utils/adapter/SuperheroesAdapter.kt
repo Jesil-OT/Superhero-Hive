@@ -34,10 +34,7 @@ class SuperheroesAdapter(
     }
 
     override fun onBindViewHolder(holderSuperheroes: SuperheroesViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        if (currentItem != null) {
-            holderSuperheroes.bind(currentItem, onItemLike, onItemUnlike)
-        }
+        holderSuperheroes.bind(getItem(position), onItemLike, onItemUnlike)
     }
 
     inner class SuperheroesViewHolder(private val binding: ItemEachHeroBinding) :

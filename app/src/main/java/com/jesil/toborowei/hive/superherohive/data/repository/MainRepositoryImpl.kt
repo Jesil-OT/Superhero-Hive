@@ -9,22 +9,17 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainRepositoryImpl @Inject constructor(
-    private val dao: SuperheroDao,
-    @ApplicationScope private val applicationScope: CoroutineScope
+    private val dao: SuperheroDao
 ) : MainRepository {
-    override fun getAllFavorites(): Flow<List<HeroModel>> {
+    override suspend fun getAllFavorites(): Flow<List<HeroModel>> {
         return dao.queryAllFavorites()
     }
 
-    override fun addFavorite(superHeroModel: HeroModel) {
-        applicationScope.launch {
-            dao.addFavorites(superHeroModel)
-        }
+    override suspend fun addFavorite(superHeroModel: HeroModel) {
+        dao.addFavorites(superHeroModel)
     }
 
-    override fun removeFavorites(superHeroModel: HeroModel) {
-        applicationScope.launch {
-            dao.removeFavorites(superHeroModel)
-        }
+    override suspend fun removeFavorites(superHeroModel: HeroModel) {
+        dao.removeFavorites(superHeroModel)
     }
 }

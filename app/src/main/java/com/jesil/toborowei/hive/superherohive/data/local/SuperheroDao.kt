@@ -14,5 +14,5 @@ interface SuperheroDao {
     suspend fun addFavorites(superheroModels: HeroModel)
 
     @Delete
-    fun removeFavorites(superheroModels: HeroModel)
+    suspend fun removeFavorites(superheroModels: HeroModel)
 }
