@@ -14,6 +14,8 @@ import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
+import com.jesil.toborowei.hive.superherohive.utils.glideHeroImage
+import com.jesil.toborowei.hive.superherohive.utils.glideHeroPublisher
 import com.jesil.toborowei.hive.superherohive.utils.providerUtil
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,13 +32,11 @@ class SuperheroDetailsActivity : AppCompatActivity() {
         var weight = " "
         var height = " "
         val heroData: HeroModel? = intent.extras?.getParcelable(INTENT_KEY)
-        val requestOptions = RequestOptions()
-            .error(R.drawable.ic_broken_image)
 
         binding.apply {
             heroData?.let { result ->
                 detailName.text = result.name
-                detailRealName.text = result.biography.fullName ?: result.name
+                detailRealName.text = if(result.biography.fullName.isEmpty()) result.name else result.biography.fullName
                 detailPlaceOfBirth.text = "Place of Birth: ${result.biography.placeOfBirth}"
                 detailFirstAppearance.text = "First Appearance: ${result.biography.firstAppearance}"
                 detailAppearanceGender.text = result.appearance.gender
@@ -47,36 +47,18 @@ class SuperheroDetailsActivity : AppCompatActivity() {
                 detailConnectionRelatives.text = "Relative: ${result.connections.relatives}"
                 detailWorkOccupation.text = "Work: ${result.work.occupation}"
 
-                Glide.with(this@SuperheroDetailsActivity)
-                    .setDefaultRequestOptions(requestOptions)
-                    .load(result.images.largeImage)
-                    .into(detailImageRace)
-
-                Glide.with(this@SuperheroDetailsActivity)
-                    .setDefaultRequestOptions(requestOptions)
-                    .load(result.images.mediumImage)
-                    .into(detailImageSmall)
+                detailImageRace.glideHeroImage(view = textviewIntelligence, uri = result.images.largeImage)
+                detailImageSmall.glideHeroImage(view = textviewIntelligence, uri = result.images.mediumImage)
 
                 when {
                     result.biography.publisher.equals(MARVEL, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .setDefaultRequestOptions(requestOptions)
-                            .load(R.drawable.ic_marvel)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(detailImagePublisher)
+                        detailImagePublisher.glideHeroPublisher(view = textviewIntelligence, uri = R.drawable.ic_marvel)
                     }
                     result.biography.publisher.equals(DC, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .setDefaultRequestOptions(requestOptions)
-                            .load(R.drawable.ic_dc)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(detailImagePublisher)
+                        detailImagePublisher.glideHeroPublisher(view = textviewIntelligence, uri = R.drawable.ic_dc)
                     }
                     result.biography.publisher.equals(IDW, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
-                            .load(R.drawable.ic_idw)
-                            .transition(DrawableTransitionOptions.withCrossFade())
-                            .into(detailImagePublisher)
+                        detailImagePublisher.glideHeroPublisher(view = textviewIntelligence, uri = R.drawable.ic_idw)
                     }
                     else -> {
                         detailImagePublisher.setImageResource(R.drawable.ic_unknown_publisher)

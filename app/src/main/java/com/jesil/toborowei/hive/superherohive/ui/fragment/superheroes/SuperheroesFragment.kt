@@ -41,7 +41,7 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
                 preferenceHelper.addFavorite(item.id)
                 superheroesViewModel.setFavorites(item)
                 _toast?.cancel()
-                showToast("added ${item.name} to favorites")
+                showToast("You added ${item.name} to your favorites")
 
             },
             { item -> //unlike
@@ -49,7 +49,7 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
                 preferenceHelper.removeFavorite(item.id)
                 superheroesViewModel.removeFavorites(item)
                 _toast?.cancel()
-                showToast("removed ${item.name} from favorites")
+                showToast("You removed ${item.name} from your favorites")
             })
     }
 

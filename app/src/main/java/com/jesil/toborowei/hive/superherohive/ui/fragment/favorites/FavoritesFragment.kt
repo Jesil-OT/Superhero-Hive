@@ -42,7 +42,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickList
                 preferenceHelper.removeFavorite(item.id)
                 favoritesViewModel.removeFavorites(item)
                 _toast?.cancel()
-                showToast("Removed ${item.name} from favorites")
+                showToast("You Removed ${item.name} from your favorites")
             })
     }
 
@@ -58,7 +58,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickList
 
     private fun setData(data: List<HeroModel>) = with(binding) {
         superheroesAdapter.submitList(data)
-        errorGroup.isVisible = data.isEmpty()
+        errorGroup.isVisible = data.isNullOrEmpty()
     }
 
     override fun onItemClick(superheroModel: HeroModel) {

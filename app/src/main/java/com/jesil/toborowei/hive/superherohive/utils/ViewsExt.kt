@@ -1,10 +1,13 @@
 package com.jesil.toborowei.hive.superherohive.utils
 
 import android.graphics.Color
-import android.graphics.ColorMatrix
 import android.view.View
+import android.widget.ImageView
 import androidx.core.graphics.ColorUtils
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.jesil.toborowei.hive.superherohive.R
 import com.ramijemli.percentagechartview.callback.AdaptiveColorProvider
 
 fun View.showUtils() {
@@ -14,6 +17,18 @@ fun View.showUtils() {
 fun View.hideUtils() {
     visibility = View.GONE
 }
+
+fun ImageView.glideHeroImage(view: View, uri: String?) =
+    Glide.with(view)
+        .load(uri)
+        .placeholder(R.drawable.ic_on_loading_image)
+        .error(R.drawable.ic_broken_image)
+        .into(this)
+
+fun ImageView.glideHeroPublisher(view: View, uri: Int) =
+    Glide.with(view)
+        .load(uri)
+        .into(this)
 
 fun SwipeRefreshLayout.colorSchemeAndRefreshListener(onRefresh: () -> Unit){
     setColorSchemeResources(
@@ -34,8 +49,7 @@ val providerUtil: AdaptiveColorProvider =
                 progress <= 25f -> Color.parseColor("#F32121")
                 progress <= 50f -> Color.parseColor("#C6980D")
                 progress <= 75f -> Color.parseColor("#0D7711")
-                progress <= 85 -> Color.parseColor("#0B7EB1")
-                else -> Color.parseColor("#0F2FE1")
+                else -> Color.parseColor("#3551EF")
             }
         }
 
@@ -48,8 +62,7 @@ val providerUtil: AdaptiveColorProvider =
                 progress <= 25f -> Color.parseColor("#F32121")
                 progress <= 50f -> Color.parseColor("#F1DD31")
                 progress <= 75f -> Color.parseColor("#0D7711")
-                progress <= 85f -> Color.parseColor("#0B7EB1")
-                else -> Color.parseColor("#0F2FE1")
+                else -> Color.parseColor("#3551EF")
             }
         }
 

@@ -22,4 +22,6 @@
     <string name="like_button">Like Button</string>
     <string name="favorites_add_image">Favorites add image</string>
     <string name="favorites_text_description">All your favorites will be shown here, so go ahead and like your favorite superheroes and villains.</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
 </resources>

@@ -1,10 +1,11 @@
 package com.jesil.toborowei.hive.superherohive.ui
 
 import android.annotation.SuppressLint
-import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             setContentView(root)
             setSupportActionBar(toolbar.root)
+            toolbar.root.title = resources.getString(R.string.app_name)
         }
 
         val navHostFragment =
@@ -39,6 +41,27 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.setupWithNavController(navController)
             bottomNavigationView.setOnItemReselectedListener { }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.settings, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.settings -> {
+                navigateToSettings()
+                false
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    private fun navigateToSettings() {
+
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
