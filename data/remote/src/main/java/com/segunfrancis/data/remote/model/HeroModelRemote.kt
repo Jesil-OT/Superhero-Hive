@@ -2,30 +2,28 @@ package com.segunfrancis.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class HeroModel(
+data class HeroModelRemote(
     @SerializedName("appearance")
-    val appearance: Appearance,
+    val appearanceRemote: AppearanceRemote,
 
     @SerializedName("biography")
-    val biography: Biography,
+    val biographyRemote: BiographyRemote,
 
     @SerializedName("connections")
-    val connections: Connections,
+    val connectionsRemote: ConnectionsRemote,
 
     @SerializedName("id")
     val id: Int,
 
     @SerializedName("images")
-    val images: Images,
+    val imagesRemote: ImagesRemote,
 
     @SerializedName("name")
     val name: String,
 
     @SerializedName("powerstats")
-    val powerStats: Powerstats,
+    val powerStats: PowerstatsRemote,
 
     @SerializedName("work")
-    val work: Work,
-
-    var isFavorite : Boolean = false
+    val workRemote: WorkRemote,
 )

@@ -2,7 +2,7 @@ package com.segunfrancis.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Appearance(
+data class AppearanceRemote(
     @SerializedName("eyeColor")
     val eyeColor: String,
 

@@ -1,6 +1,6 @@
 package com.segunfrancis.data.local.model
 
-data class Connections(
+data class ConnectionsLocal(
     val groupAffiliation: String,
 
     val relatives: String

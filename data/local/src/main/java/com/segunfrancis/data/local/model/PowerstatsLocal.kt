@@ -1,6 +1,6 @@
 package com.segunfrancis.data.local.model
 
-data class Powerstats(
+data class PowerstatsLocal(
     val combat: Int,
 
     val durability: Int,

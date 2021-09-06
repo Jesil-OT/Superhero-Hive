@@ -1,6 +1,6 @@
-package com.segunfrancis.data.local.model
+package com.segunfrancis.domain.model
 
-data class Images(
+data class ImagesDomain(
     val largeImage: String,
 
     val mediumImage: String,

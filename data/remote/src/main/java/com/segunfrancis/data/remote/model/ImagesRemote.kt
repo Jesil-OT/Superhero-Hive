@@ -2,7 +2,7 @@ package com.segunfrancis.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Images(
+data class ImagesRemote(
     @SerializedName("lg")
     val largeImage: String,
 

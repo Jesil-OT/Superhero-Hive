@@ -2,7 +2,7 @@ package com.segunfrancis.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Powerstats(
+data class PowerstatsRemote(
     @SerializedName("combat")
     val combat: Int,
 

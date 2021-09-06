@@ -5,29 +5,29 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "superhero_hive_table")
-data class HeroModel(
+data class HeroModelLocal(
     @Embedded
-    val appearance: Appearance,
+    val appearanceLocal: AppearanceLocal,
 
     @Embedded
-    val biography: Biography,
+    val biographyLocal: BiographyLocal,
 
     @Embedded
-    val connections: Connections,
+    val connectionsLocal: ConnectionsLocal,
 
     @PrimaryKey(autoGenerate = false)
     val id: Int,
 
     @Embedded
-    val images: Images,
+    val imagesLocal: ImagesLocal,
 
     val name: String,
 
     @Embedded
-    val powerStats: Powerstats,
+    val powerStats: PowerstatsLocal,
 
     @Embedded
-    val work: Work,
+    val workLocal: WorkLocal,
 
     var isFavorite : Boolean = false
 )

@@ -2,7 +2,7 @@ package com.segunfrancis.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Work(
+data class WorkRemote(
     @SerializedName("base")
     val base: String,
 

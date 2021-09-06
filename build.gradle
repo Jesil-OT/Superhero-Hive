@@ -5,14 +5,26 @@ buildscript {
         mavenCentral()
         // add below line in your gradle file
     }
+    ext {
+        hiltVersion = "2.38.1"
+        retrofitVersion = "2.9.0"
+        loggingInterceptorVersion = "4.9.1"
+        shimmerVersion = "0.5.0"
+        glideVersion = "4.12.0"
+        room_version = "2.3.0"
+        lottieVersion = "4.0.0"
+        percentageVersion = "0.3.1"
+        circleImageViewVersion = "3.1.0"
+        like_button_version = "0.2.3"
+        navigationVersion = "2.3.0"
+    }
+
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.1"
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30'
 
-        def navigationVersion = '2.3.0'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
 
-        def hiltVersion = '2.38.1'
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
 
 

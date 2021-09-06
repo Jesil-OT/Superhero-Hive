@@ -1,6 +1,6 @@
-package com.segunfrancis.data.local.model
+package com.segunfrancis.domain.model
 
-data class Appearance(
+data class AppearanceDomain(
     val eyeColor: String,
 
     val gender: String,

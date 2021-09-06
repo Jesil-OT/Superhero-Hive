@@ -1,6 +1,6 @@
 package com.segunfrancis.data.local.model
 
-data class Work(
+data class WorkLocal(
     val base: String,
 
     val occupation: String

@@ -1,18 +1,22 @@
 package com.segunfrancis.data.local
 
-import androidx.room.*
-import com.segunfrancis.data.local.model.HeroModel
+import androidx.room.Delete
+import androidx.room.Query
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Dao
+import com.segunfrancis.data.local.model.HeroModelLocal
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SuperheroDao {
 
     @Query("SELECT * FROM superhero_hive_table")
-    fun queryAllFavorites(): Flow<List<HeroModel>>
+    fun queryAllFavorites(): Flow<List<HeroModelLocal>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addFavorites(superheroModels: HeroModel)
+    suspend fun addFavorites(superheroModels: HeroModelLocal)
 
     @Delete
-    fun removeFavorites(superheroModels: HeroModel)
+    fun removeFavorites(superheroModels: HeroModelLocal)
 }

@@ -1,6 +1,6 @@
-package com.segunfrancis.data.local.model
+package com.segunfrancis.domain.model
 
-data class Biography(
+data class BiographyDomain(
     val aliases: List<String>,
 
     val firstAppearance: String,
