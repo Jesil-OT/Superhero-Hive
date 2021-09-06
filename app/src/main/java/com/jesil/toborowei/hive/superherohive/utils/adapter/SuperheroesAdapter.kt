@@ -11,7 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.ItemEachHeroBinding
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL

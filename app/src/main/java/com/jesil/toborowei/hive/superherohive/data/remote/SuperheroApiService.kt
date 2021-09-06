@@ -1,6 +1,6 @@
 package com.jesil.toborowei.hive.superherohive.data.remote
 
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import retrofit2.http.GET
 
 interface SuperheroApiService {

@@ -3,7 +3,7 @@ package com.jesil.toborowei.hive.superherohive.ui
 import androidx.lifecycle.*
 import com.jesil.toborowei.hive.superherohive.data.remote.HeroRemoteDataSource
 import com.jesil.toborowei.hive.superherohive.data.repository.MainRepository
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.utils.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch

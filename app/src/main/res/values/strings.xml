@@ -3,7 +3,6 @@
     <string name="superheroes">Superheroes</string>
     <string name="favorites">Favorites</string>
     <string name="setting">Settings</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_favorites">Hello blank favorites</string>
     <string name="hello_blank_settings">Hello blank settings</string>
     <string name="superhero_image">Superhero Image</string>

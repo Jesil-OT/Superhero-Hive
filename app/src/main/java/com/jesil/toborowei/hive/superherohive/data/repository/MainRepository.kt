@@ -1,6 +1,6 @@
 package com.jesil.toborowei.hive.superherohive.data.repository
 
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import kotlinx.coroutines.flow.Flow
 
 interface MainRepository {

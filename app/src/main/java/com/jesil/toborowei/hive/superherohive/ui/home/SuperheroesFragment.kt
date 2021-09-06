@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentSuperheroesBinding
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.ui.SuperheroesHiveViewModel
 import com.jesil.toborowei.hive.superherohive.ui.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.*
@@ -92,11 +92,11 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
     private fun successViews() {
         binding.apply {
             superheroRecyclerView.apply {
-                showUtils()
+                makeVisible()
                 superheroRecyclerView.adapter = superheroesAdapter
             }
             customShimmerLayout.root.apply {
-                hideUtils()
+                makeGone()
                 stopShimmer()
             }
             retry.isRefreshing = false
@@ -105,13 +105,13 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
 
     private fun errorViews() {
         binding.apply {
-            lottieAnimationViewNoInternet.showUtils()
+            lottieAnimationViewNoInternet.makeVisible()
             textViewError.apply {
-                showUtils()
+                makeVisible()
                 text = resources.getString(R.string.network_error)
             }
             customShimmerLayout.root.apply {
-                hideUtils()
+                makeGone()
                 stopShimmer()
             }
             retry.isRefreshing = false
@@ -120,9 +120,9 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
 
     private fun loadingViews() {
         binding.apply {
-            superheroRecyclerView.hideUtils()
+            superheroRecyclerView.makeGone()
             customShimmerLayout.root.apply {
-                showUtils()
+                makeVisible()
                 startShimmer()
             }
             retry.isRefreshing = true
@@ -131,8 +131,8 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
 
     private fun hideErrorForNewData() {
         binding.apply {
-            lottieAnimationViewNoInternet.hideUtils()
-            textViewError.hideUtils()
+            lottieAnimationViewNoInternet.makeGone()
+            textViewError.makeGone()
             retry.isRefreshing = false
         }
     }

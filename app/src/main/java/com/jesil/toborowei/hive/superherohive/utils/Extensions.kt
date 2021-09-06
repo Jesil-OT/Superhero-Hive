@@ -3,14 +3,18 @@ package com.jesil.toborowei.hive.superherohive.utils
 import android.graphics.Color
 import android.view.View
 import androidx.core.graphics.ColorUtils
+import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ramijemli.percentagechartview.callback.AdaptiveColorProvider
 
-fun View.showUtils() {
+fun View.makeVisible() {
     visibility = View.VISIBLE
 }
 
-fun View.hideUtils() {
+fun View.makeGone() {
     visibility = View.GONE
 }
 
@@ -58,3 +62,9 @@ val providerUtil: AdaptiveColorProvider =
 
     }
 
+fun Fragment.navigate(deepLink: String) {
+    val request = NavDeepLinkRequest.Builder
+        .fromUri(deepLink.toUri())
+        .build()
+    findNavController().navigate(request)
+}

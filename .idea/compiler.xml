@@ -5,6 +5,7 @@
       <module name="SuperheroHive.app" target="11" />
       <module name="SuperheroHive.data.local" target="11" />
       <module name="SuperheroHive.data.remote" target="11" />
+      <module name="SuperheroHive.feature.home" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="network_error">Unable to Connect to the internet Right now, Please check your internet connection and swipe down to Refresh</string>
+    <string name="item_superhero_publisher">Item Superhero Publisher</string>
+    <string name="superhero_image">Superhero Image</string>
+</resources>

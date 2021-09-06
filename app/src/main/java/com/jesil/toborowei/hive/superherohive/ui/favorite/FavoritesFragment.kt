@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentFavoritesBinding
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.ui.SuperheroesHiveViewModel
 import com.jesil.toborowei.hive.superherohive.ui.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY

@@ -1,7 +1,7 @@
 package com.jesil.toborowei.hive.superherohive.data.local
 
 import androidx.room.*
-import com.jesil.toborowei.hive.superherohive.model.HeroModel
+import com.segunfrancis.feature.home.model.HeroModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -5,6 +5,13 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import com.segunfrancis.feature.home.model.Appearance
+import com.segunfrancis.feature.home.model.Biography
+import com.segunfrancis.feature.home.model.Connections
+import com.segunfrancis.feature.home.model.HeroModel
+import com.segunfrancis.feature.home.model.Images
+import com.segunfrancis.feature.home.model.Powerstats
+import com.segunfrancis.feature.home.model.Work
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
