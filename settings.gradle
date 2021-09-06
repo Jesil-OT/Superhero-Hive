@@ -9,3 +9,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SuperheroHive"
 include ':app'
+include ':data:remote'
+include ':data:local'
