@@ -1,29 +1,25 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment.favorites
+package com.jesil.toborowei.hive.superherohive.ui.favorite
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentFavoritesBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
-import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesHiveViewModel
-import com.jesil.toborowei.hive.superherohive.ui.fragment.details.SuperheroDetailsActivity
+import com.jesil.toborowei.hive.superherohive.ui.SuperheroesHiveViewModel
+import com.jesil.toborowei.hive.superherohive.ui.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
 import com.jesil.toborowei.hive.superherohive.utils.adapter.SuperheroesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoritesFragment] factory method to
- * create an instance of this fragment.
- */
 @AndroidEntryPoint
 class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickListener {
     @Inject
@@ -49,20 +45,17 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickList
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFavoritesBinding.bind(view)
 
+        binding.recyclerViewFavorites.adapter = superheroesAdapter
+
+        setupObserver()
+    }
+
+    private fun setupObserver() {
         hiveViewModel.allFavorites.observe(viewLifecycleOwner) { favoritesResult ->
             binding.apply {
-                favoritesAddImage.isVisible = favoritesResult.isNullOrEmpty()
-                favoritesTextDescription.isVisible = favoritesResult.isNullOrEmpty()
-                recyclerViewFavorites.isVisible = favoritesResult.isNotEmpty()
-                when (recyclerViewFavorites.isVisible) {
-                    !false -> {
-                        binding.recyclerViewFavorites.apply {
-                            adapter = superheroesAdapter
-                            superheroesAdapter.submitList(favoritesResult)
-                            hasFixedSize()
-                        }
-                    }
-                }
+                superheroesAdapter.submitList(favoritesResult)
+                errorGroup.isVisible = favoritesResult.isEmpty()
+                recyclerViewFavorites.isGone = favoritesResult.isEmpty()
             }
         }
     }

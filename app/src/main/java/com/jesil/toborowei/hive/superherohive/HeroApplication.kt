@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.di
+package com.jesil.toborowei.hive.superherohive
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

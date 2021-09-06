@@ -1,12 +1,10 @@
 package com.jesil.toborowei.hive.superherohive.model
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.jesil.toborowei.hive.superherohive.model.objects.*
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

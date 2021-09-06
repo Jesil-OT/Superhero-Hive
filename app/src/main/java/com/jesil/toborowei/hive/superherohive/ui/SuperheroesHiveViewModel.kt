@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.model.viewmodel
+package com.jesil.toborowei.hive.superherohive.ui
 
 import androidx.lifecycle.*
 import com.jesil.toborowei.hive.superherohive.data.remote.HeroRemoteDataSource
@@ -23,10 +23,10 @@ class SuperheroesHiveViewModel @Inject constructor(
     val heroDataList: LiveData<DataResult<List<HeroModel>>> = _heroDataList
 
     init {
-       loadSuperHeroResult()
+        loadSuperHeroResult()
     }
 
-    fun loadSuperHeroResult(){
+    fun loadSuperHeroResult() {
         viewModelScope.launch {
             heroRemoteDataSource.heroList
                 .onStart {
@@ -47,11 +47,11 @@ class SuperheroesHiveViewModel @Inject constructor(
         }
     }
 
-    fun setFavorites(heroModel: HeroModel){
+    fun setFavorites(heroModel: HeroModel) = viewModelScope.launch {
         mainRepository.addFavorite(heroModel)
     }
 
-    fun removeFavorites(heroModel: HeroModel){
+    fun removeFavorites(heroModel: HeroModel) = viewModelScope.launch {
         mainRepository.removeFavorites(heroModel)
     }
 }

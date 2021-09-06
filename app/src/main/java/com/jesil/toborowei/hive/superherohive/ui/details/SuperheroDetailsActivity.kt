@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment.details
+package com.jesil.toborowei.hive.superherohive.ui.details
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

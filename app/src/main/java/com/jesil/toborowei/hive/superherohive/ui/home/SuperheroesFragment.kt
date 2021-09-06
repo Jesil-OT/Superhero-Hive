@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment.superheroes
+package com.jesil.toborowei.hive.superherohive.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,8 @@ import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentSuperheroesBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
-import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesHiveViewModel
-import com.jesil.toborowei.hive.superherohive.ui.fragment.details.SuperheroDetailsActivity
+import com.jesil.toborowei.hive.superherohive.ui.SuperheroesHiveViewModel
+import com.jesil.toborowei.hive.superherohive.ui.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.*
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.adapter.SuperheroesAdapter

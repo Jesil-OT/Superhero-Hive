@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.model.objects
+package com.jesil.toborowei.hive.superherohive.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

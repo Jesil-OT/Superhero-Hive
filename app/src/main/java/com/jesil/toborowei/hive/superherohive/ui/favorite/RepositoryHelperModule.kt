@@ -1,4 +1,4 @@
-package com.jesil.toborowei.hive.superherohive.ui.fragment.favorites
+package com.jesil.toborowei.hive.superherohive.ui.favorite
 
 import com.jesil.toborowei.hive.superherohive.data.repository.MainRepository
 import com.jesil.toborowei.hive.superherohive.data.repository.MainRepositoryImpl

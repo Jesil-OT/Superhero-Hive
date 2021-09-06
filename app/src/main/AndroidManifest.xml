@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".di.HeroApplication"
+        android:name=".HeroApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SuperheroHive">
         <activity
-            android:name=".ui.fragment.details.SuperheroDetailsActivity"
+            android:name=".ui.details.SuperheroDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
