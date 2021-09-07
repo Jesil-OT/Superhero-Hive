@@ -6,6 +6,5 @@
     android:background="?attr/colorPrimary"
     app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:title="@string/app_name"
-    app:titleCentered="true"
-    app:titleTextColor="?attr/colorOnPrimary"/>
+    app:titleTextColor="?attr/colorOnPrimary"
+    />

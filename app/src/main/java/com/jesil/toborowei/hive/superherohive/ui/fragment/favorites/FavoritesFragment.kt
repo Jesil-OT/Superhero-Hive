@@ -5,13 +5,13 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.data.local.PreferenceHelper
 import com.jesil.toborowei.hive.superherohive.databinding.FragmentFavoritesBinding
 import com.jesil.toborowei.hive.superherohive.model.HeroModel
-import com.jesil.toborowei.hive.superherohive.model.viewmodel.SuperheroesHiveViewModel
 import com.jesil.toborowei.hive.superherohive.ui.fragment.details.SuperheroDetailsActivity
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.OnItemClickListener
@@ -29,7 +29,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickList
     @Inject
     lateinit var preferenceHelper: PreferenceHelper
 
-    private val hiveViewModel: SuperheroesHiveViewModel by viewModels()
+    private val favoritesViewModel: FavoritesViewModel by viewModels()
     private var _binding: FragmentFavoritesBinding? = null
     private var _toast: Toast? = null
     private val binding get() = _binding!!
@@ -40,8 +40,9 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickList
             { item -> //unlike
                 item.isFavorite = false
                 preferenceHelper.removeFavorite(item.id)
-                hiveViewModel.removeFavorites(item)
-                showToast("Removed ${item.name} from favorites")
+                favoritesViewModel.removeFavorites(item)
+                _toast?.cancel()
+                showToast("You Removed ${item.name} from your favorites")
             })
     }
 
@@ -49,22 +50,15 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites), OnItemClickList
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFavoritesBinding.bind(view)
 
-        hiveViewModel.allFavorites.observe(viewLifecycleOwner) { favoritesResult ->
-            binding.apply {
-                favoritesAddImage.isVisible = favoritesResult.isNullOrEmpty()
-                favoritesTextDescription.isVisible = favoritesResult.isNullOrEmpty()
-                recyclerViewFavorites.isVisible = favoritesResult.isNotEmpty()
-                when (recyclerViewFavorites.isVisible) {
-                    !false -> {
-                        binding.recyclerViewFavorites.apply {
-                            adapter = superheroesAdapter
-                            superheroesAdapter.submitList(favoritesResult)
-                            hasFixedSize()
-                        }
-                    }
-                }
-            }
+        binding.recyclerViewFavorites.adapter = superheroesAdapter
+        favoritesViewModel.allFavorites.observe(viewLifecycleOwner) { favoritesResult ->
+            setData(favoritesResult)
         }
+    }
+
+    private fun setData(data: List<HeroModel>) = with(binding) {
+        superheroesAdapter.submitList(data)
+        errorGroup.isVisible = data.isNullOrEmpty()
     }
 
     override fun onItemClick(superheroModel: HeroModel) {

@@ -59,8 +59,7 @@
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/green_ok</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold|italic</item>
     </style>
 
@@ -82,6 +81,7 @@
         <item name="pcv_orientation">clockwise</item>
         <item name="pcv_progress">0</item>
         <item name="pcv_progressBarThickness">8dp</item>
+        <item name="fontFamily">Interstellar</item>
         <item name="pcv_textStyle">italic</item>
         <item name="pcv_textSize">13sp</item>
 

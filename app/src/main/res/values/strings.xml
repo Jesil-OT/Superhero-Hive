@@ -9,7 +9,7 @@
     <string name="superhero_image">Superhero Image</string>
     <string name="detail_large_image">detail large image</string>
 
-    <string name="network_error">Unable to Connect to the internet Right now, Please check your internet connection and swipe down to Refresh</string>
+    <string name="network_error">Unable to Connect to the internet Right now, Please check your internet connection and swipe down to Refresh.</string>
     <string name="durability">Durability</string>
     <string name="speed">Speed</string>
     <string name="intelligence">Intelligence</string>
@@ -21,5 +21,7 @@
     <string name="retry">Retry</string>
     <string name="like_button">Like Button</string>
     <string name="favorites_add_image">Favorites add image</string>
-    <string name="favorites_text_description">All your favorites will be shown here, so go ahead and like something</string>
+    <string name="favorites_text_description">All your favorites will be shown here, so go ahead and like your favorite superheroes and villains.</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
 </resources>
