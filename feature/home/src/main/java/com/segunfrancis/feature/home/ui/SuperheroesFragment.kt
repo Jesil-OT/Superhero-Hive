@@ -8,6 +8,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.segunfrancis.common.SuperheroesAdapter
+import com.segunfrancis.common.util.fromObjectToString
+import com.segunfrancis.common.util.navigate
 import com.segunfrancis.feature.home.R
 import com.segunfrancis.feature.home.databinding.FragmentSuperheroesBinding
 import com.segunfrancis.feature.home.util.NetworkResult
@@ -25,7 +27,8 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
     private val superheroesAdapter: SuperheroesAdapter by lazy {
         SuperheroesAdapter({ itemClick ->
             // TODO: Navigate to details screen
-            showToast(itemClick.isFavorite.toString())
+            val hero = itemClick.fromObjectToString()
+            navigate("https://superhero.hive/details/$hero")
         }, { itemLike ->
             // TODO: Add or remove from liked item depending on the value of `itemLike.isFavorite`
             showToast(itemLike.isFavorite.toString())

@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/menu/bottom_navigation_view.xml" value="0.2578125" />
         <entry key="common/src/main/res/drawable/ic_broken_image.xml" value="0.1465" />
         <entry key="common/src/main/res/layout/item_each_hero.xml" value="0.2578125" />
+        <entry key="feature/details/src/main/res/layout/fragment_details.xml" value="0.2578125" />
         <entry key="feature/home/src/main/res/drawable/drawables.xml" value="0.1465" />
         <entry key="feature/home/src/main/res/drawable/ic_broken_image.xml" value="0.1465" />
         <entry key="feature/home/src/main/res/drawable/ic_heart.xml" value="0.1465" />

@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="network_error">Unable to Connect to the internet Right now, Please check your internet connection and swipe down to Refresh</string>
-    <string name="item_superhero_publisher">Item Superhero Publisher</string>
+    <string name="app_name">Superhero Hive</string>
+    <string name="superheroes">Superheroes</string>
+    <string name="favorites">Favorites</string>
+    <string name="setting">Settings</string>
+    <string name="hello_blank_favorites">Hello blank favorites</string>
+    <string name="hello_blank_settings">Hello blank settings</string>
     <string name="superhero_image">Superhero Image</string>
+    <string name="detail_large_image">detail large image</string>
+
+    <string name="network_error">Unable to Connect to the internet Right now, Please check your internet connection and swipe down to Refresh</string>
+    <string name="durability">Durability</string>
+    <string name="speed">Speed</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="strength">Strength</string>
+    <string name="power">Power</string>
+    <string name="combat">Combat</string>
+    <string name="item_superhero_publisher">Item Superhero Publisher</string>
+    <string name="details_friends">Details friends</string>
+    <string name="retry">Retry</string>
+    <string name="like_button">Like Button</string>
+    <string name="favorites_add_image">Favorites add image</string>
+    <string name="favorites_text_description">All your favorites will be shown here, so go ahead and like something</string>
 </resources>

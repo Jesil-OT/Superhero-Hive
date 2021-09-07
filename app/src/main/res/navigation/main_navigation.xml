@@ -5,6 +5,9 @@
     android:id="@+id/main_navigation"
     app:startDestination="@id/superheroes">
 
+    <include app:graph="@navigation/home_navigation" />
+    <include app:graph="@navigation/details_navigation" />
+
     <fragment
         android:id="@+id/settings"
         android:name="com.jesil.toborowei.hive.superherohive.ui.settings.SettingsFragment"

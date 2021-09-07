@@ -1,35 +1,34 @@
-package com.jesil.toborowei.hive.superherohive.ui.details
+package com.segunfrancis.feature.details
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.jesil.toborowei.hive.superherohive.R
-import com.jesil.toborowei.hive.superherohive.databinding.ActivitySuperheroDetailsBinding
-import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
-import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
-import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
-import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
-import com.jesil.toborowei.hive.superherohive.utils.providerUtil
 import com.segunfrancis.common.model.HeroModel
-import dagger.hilt.android.AndroidEntryPoint
+import com.segunfrancis.common.util.CommonConstants.DC
+import com.segunfrancis.common.util.CommonConstants.IDW
+import com.segunfrancis.common.util.CommonConstants.MARVEL
+import com.segunfrancis.common.util.fromStringToObject
+import com.segunfrancis.common.util.providerUtil
+import com.segunfrancis.feature.details.databinding.FragmentDetailsBinding
 
-@AndroidEntryPoint
-class SuperheroDetailsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySuperheroDetailsBinding
+class DetailsFragment : Fragment(R.layout.fragment_details) {
 
-    @SuppressLint("SetTextI18n")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySuperheroDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    private lateinit var binding: FragmentDetailsBinding
+
+    private val args by navArgs<DetailsFragmentArgs>()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentDetailsBinding.bind(view)
 
         var weight = " "
         var height = " "
-        val heroData: HeroModel? = intent.extras?.getParcelable(INTENT_KEY)
+        val hero = args.hero
+        val heroData: HeroModel? = hero?.fromStringToObject()
         val requestOptions = RequestOptions()
             .error(R.drawable.ic_broken_image)
 
@@ -49,55 +48,55 @@ class SuperheroDetailsActivity : AppCompatActivity() {
 
                 when {
                     result.biography.publisher.equals(MARVEL, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_avengers)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImageRace)
                     }
                     result.biography.publisher.equals(DC, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_justice_leauge)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImageRace)
                     }
                     result.biography.publisher.equals(IDW, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .load(R.drawable.ic_idw)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImageRace)
                     }
                     else -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .setDefaultRequestOptions(requestOptions)
                             .load(result.images.largeImage)
                             .into(detailImageRace)
                     }
                 }
 
-                Glide.with(this@SuperheroDetailsActivity)
+                Glide.with(this@DetailsFragment)
                     .setDefaultRequestOptions(requestOptions)
                     .load(result.images.mediumImage)
                     .into(detailImageSmall)
 
                 when {
                     result.biography.publisher.equals(MARVEL, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_marvel)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImagePublisher)
                     }
                     result.biography.publisher.equals(DC, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .setDefaultRequestOptions(requestOptions)
                             .load(R.drawable.ic_dc)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImagePublisher)
                     }
                     result.biography.publisher.equals(IDW, true) -> {
-                        Glide.with(this@SuperheroDetailsActivity)
+                        Glide.with(this@DetailsFragment)
                             .load(R.drawable.ic_idw)
                             .transition(DrawableTransitionOptions.withCrossFade())
                             .into(detailImagePublisher)
