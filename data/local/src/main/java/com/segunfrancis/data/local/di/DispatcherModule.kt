@@ -1,6 +1,6 @@
-package com.segunfrancis.data.remote.di
+package com.segunfrancis.data.local.di
 
-import com.segunfrancis.domain.di.IODispatcher
+import com.segunfrancis.domain.di.MainDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 @InstallIn(SingletonComponent::class)
 class DispatcherModule {
 
-    @IODispatcher
+    @MainDispatcher
     @Provides
-    fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
+    fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main.immediate
 }

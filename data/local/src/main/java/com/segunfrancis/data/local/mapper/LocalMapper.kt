@@ -15,6 +15,9 @@ import com.segunfrancis.domain.model.ImagesDomain
 import com.segunfrancis.domain.model.PowerstatsDomain
 import com.segunfrancis.domain.model.WorkDomain
 
+/**
+ * Extensions for mapping local to domain layer data classes
+ */
 private fun WorkLocal.mapToWorkDomain(): WorkDomain {
     return WorkDomain(base, occupation)
 }
@@ -49,5 +52,45 @@ fun HeroModelLocal.mapToHeroDomain(): HeroModelDomain {
         imagesDomain = imagesLocal.mapToImagesDomain(),
         powerStats = powerStats.mapToPowerStatsDomain(),
         workDomain = workLocal.mapToWorkDomain()
+    )
+}
+
+/**
+ * Extensions for mapping domain to local layer data classes
+ */
+private fun WorkDomain.mapToWorkLocal(): WorkLocal {
+    return WorkLocal(base, occupation)
+}
+
+private fun PowerstatsDomain.mapToPowerStatsLocal(): PowerstatsLocal {
+    return PowerstatsLocal(combat, durability, intelligence, power, speed, strength)
+}
+
+private fun ImagesDomain.mapToImagesLocal(): ImagesLocal {
+    return ImagesLocal(largeImage, mediumImage, smallImage, extraSmallImage)
+}
+
+private fun ConnectionsDomain.mapToConnectionsLocal(): ConnectionsLocal {
+    return ConnectionsLocal(groupAffiliation, relatives)
+}
+
+private fun BiographyDomain.mapToBiographyLocal(): BiographyLocal {
+    return BiographyLocal(aliases, firstAppearance, fullName, placeOfBirth, publisher)
+}
+
+private fun AppearanceDomain.mapToAppearanceLocal(): AppearanceLocal {
+    return AppearanceLocal(eyeColor, gender, hairColor, height, race, weight)
+}
+
+fun HeroModelDomain.mapToHeroLocal(): HeroModelLocal {
+    return HeroModelLocal(
+        id = id,
+        name = name,
+        appearanceLocal = appearanceDomain.mapToAppearanceLocal(),
+        biographyLocal = biographyDomain.mapToBiographyLocal(),
+        connectionsLocal = connectionsDomain.mapToConnectionsLocal(),
+        imagesLocal = imagesDomain.mapToImagesLocal(),
+        powerStats = powerStats.mapToPowerStatsLocal(),
+        workLocal = workDomain.mapToWorkLocal()
     )
 }

@@ -1,5 +1,6 @@
 package com.segunfrancis.domain.usecase
 
+import com.segunfrancis.domain.di.IODispatcher
 import com.segunfrancis.domain.factory.DataSourceFactory
 import com.segunfrancis.domain.model.HeroModelDomain
 import javax.inject.Inject
@@ -10,7 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class GetSuperHeroListUseCase @Inject constructor(
     private val dataSource: DataSourceFactory,
-    private val dispatcher: CoroutineDispatcher
+    @IODispatcher private val dispatcher: CoroutineDispatcher
 ) {
 
     operator fun invoke(): Flow<List<HeroModelDomain>> {

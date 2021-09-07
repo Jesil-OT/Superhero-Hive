@@ -1,4 +1,4 @@
-package com.segunfrancis.data.local
+package com.segunfrancis.data.local.db
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

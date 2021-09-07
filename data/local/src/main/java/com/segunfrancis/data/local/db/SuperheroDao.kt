@@ -1,4 +1,4 @@
-package com.segunfrancis.data.local
+package com.segunfrancis.data.local.db
 
 import androidx.room.Delete
 import androidx.room.Query
@@ -18,5 +18,5 @@ interface SuperheroDao {
     suspend fun addFavorites(superheroModels: HeroModelLocal)
 
     @Delete
-    fun removeFavorites(superheroModels: HeroModelLocal)
+    suspend fun removeFavorites(superheroModels: HeroModelLocal)
 }
