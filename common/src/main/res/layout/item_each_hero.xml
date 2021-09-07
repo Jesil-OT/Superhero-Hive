@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="6dp"
+    app:cardUseCompatPadding="true">
+
+    <ImageView
+        android:id="@+id/image_src_medium"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:contentDescription="@string/superhero_image"
+        android:scaleType="fitXY"
+        tool:src="@tools:sample/backgrounds/scenic" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.like.LikeButton
+            android:id="@+id/add_to_favorites"
+            style="@style/LikeButtonStyle"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_name"
+            style="@style/TextItemName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_race"
+            app:layout_constraintStart_toStartOf="parent"
+            tool:text="A-Bomb" />
+
+        <ImageView
+            android:id="@+id/image_race"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="20dp"
+            android:alpha=".9"
+            android:contentDescription="@string/item_superhero_publisher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_view_name"
+            app:layout_constraintVertical_bias="0.56"
+            tool:src="@drawable/ic_marvel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -46,6 +46,7 @@ fun HeroModelLocal.mapToHeroDomain(): HeroModelDomain {
     return HeroModelDomain(
         id = id,
         name = name,
+        isFavorite = isFavorite,
         appearanceDomain = appearanceLocal.mapToAppearanceDomain(),
         biographyDomain = biographyLocal.mapToBiographyDomain(),
         connectionsDomain = connectionsLocal.mapToConnectionsDomain(),
@@ -86,6 +87,7 @@ fun HeroModelDomain.mapToHeroLocal(): HeroModelLocal {
     return HeroModelLocal(
         id = id,
         name = name,
+        isFavorite = isFavorite,
         appearanceLocal = appearanceDomain.mapToAppearanceLocal(),
         biographyLocal = biographyDomain.mapToBiographyLocal(),
         connectionsLocal = connectionsDomain.mapToConnectionsLocal(),

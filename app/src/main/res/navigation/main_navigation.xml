@@ -6,11 +6,6 @@
     app:startDestination="@id/superheroes">
 
     <fragment
-        android:id="@+id/superheroes"
-        android:name="com.jesil.toborowei.hive.superherohive.ui.home.SuperheroesFragment"
-        android:label="Superhero Hive"
-        tools:layout="@layout/fragment_superheroes" />
-    <fragment
         android:id="@+id/settings"
         android:name="com.jesil.toborowei.hive.superherohive.ui.settings.SettingsFragment"
         android:label="@string/setting"
@@ -20,4 +15,10 @@
         android:name="com.jesil.toborowei.hive.superherohive.ui.favorite.FavoritesFragment"
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/superheroes"
+        android:name="com.segunfrancis.feature.home.ui.SuperheroesFragment"
+        android:label="Superhero Hive"
+        tools:layout="@layout/fragment_superheroes" />
+
 </navigation>

@@ -13,9 +13,13 @@
         <entry key="app/src/main/res/layout/layout_error.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/superhero_item_shimmer_layout.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/toolbar_layout.xml" value="0.2578125" />
+        <entry key="app/src/main/res/menu/bottom_navigation_view.xml" value="0.2578125" />
+        <entry key="common/src/main/res/drawable/ic_broken_image.xml" value="0.1465" />
+        <entry key="common/src/main/res/layout/item_each_hero.xml" value="0.2578125" />
         <entry key="feature/home/src/main/res/drawable/drawables.xml" value="0.1465" />
         <entry key="feature/home/src/main/res/drawable/ic_broken_image.xml" value="0.1465" />
         <entry key="feature/home/src/main/res/drawable/ic_heart.xml" value="0.1465" />
+        <entry key="feature/home/src/main/res/layout/fragment_superheroes.xml" value="0.23055555555555557" />
         <entry key="feature/home/src/main/res/layout/item_each_hero.xml" value="0.2578125" />
         <entry key="feature/home/src/main/res/layout/superhero_item_shimmer_layout.xml" value="0.2578125" />
       </map>

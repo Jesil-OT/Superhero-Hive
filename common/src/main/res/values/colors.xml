@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="darkGray">#D3CFCF</color>
+    <color name="darkDarkGray">#B1B0B0</color>
+    <color name="like_button_end_color">#12A518</color>
+    <color name="like_button_start_color">#F1DD31</color>
+    <color name="like_button_dots_primary_color">#0E77CC</color>
+    <color name="like_button_dots_secondary_color">#FF1A4F</color>
+</resources>

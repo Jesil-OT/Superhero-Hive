@@ -9,12 +9,12 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.jesil.toborowei.hive.superherohive.R
 import com.jesil.toborowei.hive.superherohive.databinding.ActivitySuperheroDetailsBinding
-import com.segunfrancis.feature.home.model.HeroModel
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.DC
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.IDW
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.INTENT_KEY
 import com.jesil.toborowei.hive.superherohive.utils.AppConstants.MARVEL
 import com.jesil.toborowei.hive.superherohive.utils.providerUtil
+import com.segunfrancis.common.model.HeroModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

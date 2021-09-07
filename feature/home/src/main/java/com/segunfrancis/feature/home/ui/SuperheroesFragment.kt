@@ -7,41 +7,29 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.segunfrancis.feature.home.model.HeroModel
+import com.segunfrancis.common.SuperheroesAdapter
 import com.segunfrancis.feature.home.R
 import com.segunfrancis.feature.home.databinding.FragmentSuperheroesBinding
-import com.segunfrancis.feature.home.util.OnItemClickListener
+import com.segunfrancis.feature.home.util.NetworkResult
 import com.segunfrancis.feature.home.util.colorSchemeAndRefreshListener
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClickListener {
+class SuperheroesFragment : Fragment(R.layout.fragment_superheroes) {
 
-    @Inject
-    lateinit var preferenceHelper: PreferenceHelper
-
-    private val hiveViewModel: SuperherosHiveViewModel by viewModels()
+    private val hiveViewModel: SuperheroesHiveViewModel by viewModels()
     private var _binding: FragmentSuperheroesBinding? = null
     private var _toast: Toast? = null
     private val binding get() = _binding!!
 
     private val superheroesAdapter: SuperheroesAdapter by lazy {
-        SuperheroesAdapter(preferenceHelper, this,
-            { item -> //liked
-                item.isFavorite = true
-                preferenceHelper.addFavorite(item.id)
-                hiveViewModel.setFavorites(item)
-                showToast("added ${item.name} to favorites")
-
-            },
-            { item -> //unlike
-                item.isFavorite = false
-                preferenceHelper.removeFavorite(item.id)
-                hiveViewModel.removeFavorites(item)
-                _toast?.cancel()
-                showToast("removed ${item.name} from favorites")
-            })
+        SuperheroesAdapter({ itemClick ->
+            // TODO: Navigate to details screen
+            showToast(itemClick.isFavorite.toString())
+        }, { itemLike ->
+            // TODO: Add or remove from liked item depending on the value of `itemLike.isFavorite`
+            showToast(itemLike.isFavorite.toString())
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,31 +38,27 @@ class SuperheroesFragment : Fragment(R.layout.fragment_superheroes), OnItemClick
         initSuperHeroData()
         binding.retry.apply {
             colorSchemeAndRefreshListener {
-                hiveViewModel.loadSuperHeroResult()
+                hiveViewModel.getAllSuperheroes()
                 hideErrorForNewData()
             }
         }
     }
 
     private fun initSuperHeroData() {
-        hiveViewModel.heroDataList.observe(viewLifecycleOwner) { result ->
+        hiveViewModel.heroesDataList.observe(viewLifecycleOwner) { result ->
             when (result) {
-                is DataResult.Success -> {
+                is NetworkResult.Success -> {
                     superheroesAdapter.submitList(result.data)
                     successViews()
                 }
-                is DataResult.Error -> {
+                is NetworkResult.Error -> {
                     errorViews()
                 }
-                is DataResult.Loading -> {
+                is NetworkResult.Loading -> {
                     loadingViews()
                 }
             }
         }
-    }
-
-    override fun onItemClick(superheroModel: HeroModel) {
-
     }
 
     private fun successViews() {
